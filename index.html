@@ -75,9 +75,10 @@
       margin-bottom: 1rem;
     }
 
-    .hero p {
+    #animated-text {
       font-size: 1.5rem;
-      max-width: 600px;
+      margin-bottom: 1.5rem;
+      transition: opacity 0.5s ease-in-out;
     }
 
     .socials {
@@ -151,14 +152,62 @@
 
   <section class="hero">
     <h2>Hi, I'm Akshatha</h2>
-    <p>Aspiring AI Engineer | Full Stack Developer</p>
+    <p id="animated-text">Aspiring AI Engineer</p>
     <div class="socials">
       <a href="https://github.com/kakshatha-001" target="_blank"><i class="fab fa-github"></i></a>
       <a href="https://linkedin.com/in/kompally-akshatha" target="_blank"><i class="fab fa-linkedin"></i></a>
     </div>
   </section>
 
-  <!-- Add the rest of your sections here following the same design system -->
+  <section id="about">
+    <h3>About Me</h3>
+    <div class="card">
+      <p>I’m a Computer Science student passionate about Deep Learning and Web Development. I enjoy building intelligent systems and solving real-world problems using code and creativity.</p>
+    </div>
+  </section>
+
+  <section id="projects">
+    <h3>Projects</h3>
+    <div class="card">
+      <h4>ImageIntel – Deep Learning Intern at Osmania University</h4>
+      <p>Developed an AI tool for the visually impaired using ViT + GPT-2, achieving 86% accuracy in image captioning with speech synthesis.</p>
+    </div>
+    <div class="card">
+      <h4>Internal Office Web App – Full Stack Intern at DRDL</h4>
+      <p>Built a secure communication web app using JSP, JavaScript, Oracle, and Apache Tomcat to enhance internal data transfer.</p>
+    </div>
+  </section>
+
+  <section id="skills">
+    <h3>Skills</h3>
+    <div class="card">
+      <ul>
+        <li><strong>Languages:</strong> Python, C, C++, Java</li>
+        <li><strong>Web:</strong> HTML, CSS, JavaScript, PHP, JSP</li>
+        <li><strong>AI Tools:</strong> PyTorch, TensorFlow, Transformers</li>
+        <li><strong>Databases:</strong> SQL, Oracle, MongoDB</li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="education">
+    <h3>Education</h3>
+    <div class="card">
+      <ul>
+        <li><strong>B.E. CSE</strong> – MVSR Engineering College (CGPA: 9.61)</li>
+        <li><strong>Intermediate</strong> – Narayana College (98.2%)</li>
+        <li><strong>SSC</strong> – Little Flower High School (CGPA: 9.8)</li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="contact">
+    <h3>Contact</h3>
+    <div class="card">
+      <p>Email: <a href="mailto:akshathakompally@gmail.com">akshathakompally@gmail.com</a></p>
+      <p>Phone: +91 9701536579</p>
+    </div>
+  </section>
 
   <footer>
     <p>&copy; 2025 Akshatha Kompally. All rights reserved.</p>
@@ -191,6 +240,25 @@
       renderer.render(scene, camera);
     }
     animate();
+
+    // Animated Text
+    const animatedText = document.getElementById('animated-text');
+    const textOptions = [
+      "Aspiring AI Engineer",
+      "Full Stack Developer",
+      "Machine Learning Enthusiast",
+      "Problem Solver"
+    ];
+    let index = 0;
+    function changeText() {
+      animatedText.style.opacity = 0;
+      setTimeout(() => {
+        animatedText.textContent = textOptions[index];
+        animatedText.style.opacity = 1;
+        index = (index + 1) % textOptions.length;
+      }, 500);
+    }
+    setInterval(changeText, 3000);
   </script>
 </body>
 </html>
