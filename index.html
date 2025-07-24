@@ -13,7 +13,6 @@
       --bg-color: #1a1334;
       --text-color: #ffffff;
     }
-
     * {
       margin: 0;
       padding: 0;
@@ -21,13 +20,11 @@
       scroll-behavior: smooth;
       font-family: 'Poppins', sans-serif;
     }
-
     body {
       background-color: var(--bg-color);
       color: var(--text-color);
       overflow-x: hidden;
     }
-
     header {
       background-color: rgba(43, 31, 92, 0.9);
       padding: 1rem 2rem;
@@ -40,13 +37,10 @@
       justify-content: space-between;
       align-items: center;
     }
-
     header h1 {
       font-size: 1.5rem;
       font-weight: bold;
-      color: var(--text-color);
     }
-
     nav a {
       color: var(--text-color);
       margin-left: 1rem;
@@ -54,11 +48,9 @@
       font-weight: 500;
       transition: color 0.3s ease;
     }
-
     nav a:hover {
       color: var(--accent-color);
     }
-
     .hero {
       min-height: 100vh;
       display: flex;
@@ -69,46 +61,38 @@
       padding: 6rem 2rem 2rem;
       background: linear-gradient(to bottom right, #3e2c8b, #5d50a2);
     }
-
     .hero h2 {
       font-size: 3rem;
       margin-bottom: 1rem;
     }
-
     #animated-text {
       font-size: 1.5rem;
       margin-bottom: 1.5rem;
       transition: opacity 0.5s ease-in-out;
     }
-
     .socials {
       margin-top: 2rem;
     }
-
     .socials a {
       margin: 0 10px;
       font-size: 1.8rem;
       color: var(--accent-color);
       transition: transform 0.3s ease;
     }
-
     .socials a:hover {
       transform: scale(1.2);
     }
-
     section {
       padding: 6rem 2rem 2rem;
       max-width: 1000px;
       margin: auto;
     }
-
     h3 {
       font-size: 2.5rem;
       margin-bottom: 1rem;
       text-align: center;
       color: var(--accent-color);
     }
-
     .card {
       background-color: rgba(97, 82, 162, 0.2);
       border-radius: 10px;
@@ -117,22 +101,31 @@
       box-shadow: 0 10px 20px rgba(0,0,0,0.2);
       transition: transform 0.3s ease;
     }
-
     .card:hover {
       transform: translateY(-5px);
     }
-
     footer {
       text-align: center;
       padding: 2rem;
       background: #2b1f5c;
     }
-
     #background-canvas {
       position: fixed;
       top: 0;
       left: 0;
       z-index: -1;
+    }
+    .fade-in {
+      opacity: 0;
+      transform: translateX(-30px);
+      transition: all 0.6s ease-out;
+    }
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateX(0);
+    }
+    section:nth-child(even) .fade-in {
+      transform: translateX(30px);
     }
   </style>
 </head>
@@ -146,11 +139,12 @@
       <a href="#projects">Projects</a>
       <a href="#skills">Skills</a>
       <a href="#education">Education</a>
+      <a href="#location">Location</a>
       <a href="#contact">Contact</a>
     </nav>
   </header>
 
-  <section class="hero">
+  <section class="hero fade-in">
     <h2>Hi, I'm Akshatha</h2>
     <p id="animated-text">Aspiring AI Engineer</p>
     <div class="socials">
@@ -161,18 +155,18 @@
 
   <section id="about">
     <h3>About Me</h3>
-    <div class="card">
+    <div class="card fade-in">
       <p>I’m a Computer Science student passionate about Deep Learning and Web Development. I enjoy building intelligent systems and solving real-world problems using code and creativity.</p>
     </div>
   </section>
 
   <section id="projects">
     <h3>Projects</h3>
-    <div class="card">
+    <div class="card fade-in">
       <h4>ImageIntel – Deep Learning Intern at Osmania University</h4>
       <p>Developed an AI tool for the visually impaired using ViT + GPT-2, achieving 86% accuracy in image captioning with speech synthesis.</p>
     </div>
-    <div class="card">
+    <div class="card fade-in">
       <h4>Internal Office Web App – Full Stack Intern at DRDL</h4>
       <p>Built a secure communication web app using JSP, JavaScript, Oracle, and Apache Tomcat to enhance internal data transfer.</p>
     </div>
@@ -180,7 +174,7 @@
 
   <section id="skills">
     <h3>Skills</h3>
-    <div class="card">
+    <div class="card fade-in">
       <ul>
         <li><strong>Languages:</strong> Python, C, C++, Java</li>
         <li><strong>Web:</strong> HTML, CSS, JavaScript, PHP, JSP</li>
@@ -192,7 +186,7 @@
 
   <section id="education">
     <h3>Education</h3>
-    <div class="card">
+    <div class="card fade-in">
       <ul>
         <li><strong>B.E. CSE</strong> – MVSR Engineering College (CGPA: 9.61)</li>
         <li><strong>Intermediate</strong> – Narayana College (98.2%)</li>
@@ -201,9 +195,26 @@
     </div>
   </section>
 
+  <section id="location">
+    <h3>My Location</h3>
+    <div class="card fade-in">
+      <div style="width: 100%; height: 400px; border-radius: 10px; overflow: hidden; position: relative;">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3806.176690588868!2d78.47668157514207!3d17.44775308342306!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcb9bc6d935982b%3A0xc8e90cf69a5c39ea!2sHyderabad%2C%20Telangana!5e0!3m2!1sen!2sin!4v1721483913123!5m2!1sen!2sin"
+          width="100%"
+          height="100%"
+          style="border:0;"
+          allowfullscreen=""
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"></iframe>
+        <a href="https://maps.app.goo.gl/Y6GpJLUkUoxjAvnh7" target="_blank" style="position: absolute; bottom: 10px; right: 10px; background: var(--accent-color); color: white; padding: 8px 12px; border-radius: 5px; text-decoration: none; font-weight: bold;">Get Directions</a>
+      </div>
+    </div>
+  </section>
+
   <section id="contact">
     <h3>Contact</h3>
-    <div class="card">
+    <div class="card fade-in">
       <p>Email: <a href="mailto:akshathakompally@gmail.com">akshathakompally@gmail.com</a></p>
       <p>Phone: +91 9701536579</p>
     </div>
@@ -220,8 +231,7 @@
     renderer.setSize(window.innerWidth, window.innerHeight);
 
     const shapes = [];
-    const shapeCount = 20;
-    for (let i = 0; i < shapeCount; i++) {
+    for (let i = 0; i < 20; i++) {
       const geometry = new THREE.SphereGeometry(0.3, 32, 32);
       const material = new THREE.MeshBasicMaterial({ color: 0x6152a2, wireframe: true });
       const shape = new THREE.Mesh(geometry, material);
@@ -241,24 +251,37 @@
     }
     animate();
 
-    // Animated Text
     const animatedText = document.getElementById('animated-text');
-    const textOptions = [
-      "Aspiring AI Engineer",
-      "Full Stack Developer",
-      "Machine Learning Enthusiast",
-      "Problem Solver"
-    ];
+    const textOptions = ["Aspiring AI Engineer", "Full Stack Developer", "ML Enthusiast", "Problem Solver"];
     let index = 0;
-    function changeText() {
+    setInterval(() => {
       animatedText.style.opacity = 0;
       setTimeout(() => {
         animatedText.textContent = textOptions[index];
         animatedText.style.opacity = 1;
         index = (index + 1) % textOptions.length;
       }, 500);
-    }
-    setInterval(changeText, 3000);
+    }, 3000);
+
+    document.addEventListener('mousemove', (e) => {
+      document.querySelectorAll('section, .hero').forEach((el, i) => {
+        const speed = (i + 1) * 0.02;
+        const x = (window.innerWidth / 2 - e.pageX) * speed;
+        const y = (window.innerHeight / 2 - e.pageY) * speed;
+        el.style.transform = `translate(${x}px, ${y}px)`;
+      });
+    });
+
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) entry.target.classList.add('visible');
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.card, section h3').forEach(el => {
+      el.classList.add('fade-in');
+      observer.observe(el);
+    });
   </script>
 </body>
 </html>
