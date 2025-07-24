@@ -7,7 +7,6 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&family=Righteous&display=swap" rel="stylesheet">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet" />
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.9.3/lottie.min.js"></script>
   <style>
@@ -16,6 +15,7 @@
       --accent-color: #6152a2;
       --bg-color: #1a1334;
       --text-color: #ffffff;
+      --card-bg: linear-gradient(145deg, #3b2a67, #4c3b8a);
     }
 
     * {
@@ -33,7 +33,7 @@
     }
 
     header {
-      background-color: rgba(43, 31, 92, 0.9);
+      background-color: rgba(43, 31, 92, 0.95);
       padding: 1rem 2rem;
       position: fixed;
       width: 100%;
@@ -46,8 +46,8 @@
     }
 
     header h1 {
-      font-size: 1.5rem;
-      font-weight: bold;
+      font-size: 1.7rem;
+      font-family: 'Righteous', cursive;
       color: var(--text-color);
     }
 
@@ -100,12 +100,13 @@
     .socials a {
       margin: 0 10px;
       font-size: 1.8rem;
-      color: var(--accent-color);
+      color: var(--text-color);
       transition: transform 0.3s ease;
     }
 
     .socials a:hover {
       transform: scale(1.2);
+      color: var(--accent-color);
     }
 
     section {
@@ -118,20 +119,26 @@
       font-size: 2.5rem;
       margin-bottom: 1rem;
       text-align: center;
+      font-family: 'Righteous', cursive;
       color: var(--accent-color);
     }
 
     .card {
-      background-color: rgba(97, 82, 162, 0.2);
+      background: var(--card-bg);
       border-radius: 10px;
       padding: 2rem;
       margin-bottom: 2rem;
       box-shadow: 0 10px 20px rgba(0,0,0,0.2);
-      transition: transform 0.3s ease;
+      transition: transform 0.3s ease, background 0.4s ease;
     }
 
     .card:hover {
       transform: translateY(-5px);
+    }
+
+    a {
+      color: var(--accent-color);
+      text-decoration: none;
     }
 
     footer {
@@ -142,6 +149,20 @@
 
     iframe {
       border: 0;
+      width: 100%;
+      height: 100%;
+    }
+
+    /* Responsive */
+    @media (max-width: 600px) {
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      nav {
+        margin-top: 10px;
+      }
     }
   </style>
 </head>
@@ -217,8 +238,6 @@
       <div style="width: 100%; height: 400px; border-radius: 10px; overflow: hidden; position: relative;">
         <iframe
           src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3806.176690588868!2d78.47668157514207!3d17.44775308342306!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcb9bc6d935982b%3A0xc8e90cf69a5c39ea!2sHyderabad%2C%20Telangana!5e0!3m2!1sen!2sin!4v1721483913123!5m2!1sen!2sin"
-          width="100%"
-          height="100%"
           allowfullscreen=""
           loading="lazy"
           referrerpolicy="no-referrer-when-downgrade"></iframe>
@@ -240,10 +259,8 @@
   </footer>
 
   <script>
-    // AOS animation
     AOS.init({ duration: 800, once: true });
 
-    // Lottie animation
     lottie.loadAnimation({
       container: document.getElementById('lottie-hero'),
       renderer: 'svg',
@@ -252,7 +269,6 @@
       path: 'https://assets8.lottiefiles.com/packages/lf20_q5pk6p1k.json'
     });
 
-    // Animated Text
     const animatedText = document.getElementById('animated-text');
     const textOptions = [
       "Aspiring AI Engineer",
