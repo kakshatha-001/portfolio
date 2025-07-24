@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Akshatha Kompally | Portfolio</title>
 
   <!-- Fonts and Icons -->
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&family=Righteous&display=swap" rel="stylesheet" />
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&family=Righteous&display=swap" rel="stylesheet"/>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet"/>
   <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet"/>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
 
@@ -17,7 +17,6 @@
       --accent-color: #00c0ff;
       --bg-color: #0f0c29;
       --text-color: #ffffff;
-      --glass: rgba(255, 255, 255, 0.07);
     }
 
     * {
@@ -29,18 +28,18 @@
     }
 
     body {
-      background: radial-gradient(circle at top left, #0f0c29, #302b63, #24243e);
+      background: linear-gradient(to right, #0f0c29, #302b63, #24243e);
       color: var(--text-color);
       overflow-x: hidden;
     }
 
     header {
-      background-color: rgba(0, 0, 0, 0.85);
+      background: rgba(0, 0, 0, 0.85);
       padding: 1rem 2rem;
       position: fixed;
       width: 100%;
       top: 0;
-      z-index: 1000;
+      z-index: 999;
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -67,23 +66,19 @@
 
     .hero {
       min-height: 100vh;
+      padding-top: 100px;
+      text-align: center;
+      background: radial-gradient(circle, #1f1c2c, #0f0c29);
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      text-align: center;
-      padding-top: 7rem;
-      animation: dropIn 1s ease forwards;
-    }
-
-    @keyframes dropIn {
-      0% { transform: translateY(-30px); opacity: 0; }
-      100% { transform: translateY(0); opacity: 1; }
     }
 
     .hero h2 {
       font-size: 3.5rem;
       font-family: 'Righteous', cursive;
+      margin-bottom: 1rem;
       color: #fff;
     }
 
@@ -91,57 +86,95 @@
       width: 200px;
       height: 200px;
       border-radius: 50%;
-      border: 4px solid var(--accent-color);
-      margin: 1.5rem 0;
       object-fit: cover;
-      box-shadow: 0 0 20px var(--accent-color);
+      border: 4px solid var(--accent-color);
+      box-shadow: 0 4px 25px rgba(0, 0, 0, 0.5);
+      margin: 1rem 0;
     }
 
     #animated-text {
       font-size: 1.6rem;
-      color: var(--accent-color);
       margin-top: 0.5rem;
+    }
+
+    .socials {
+      margin-top: 1.5rem;
     }
 
     .socials a {
       margin: 0 12px;
-      font-size: 2rem;
+      font-size: 1.8rem;
       color: var(--accent-color);
       transition: transform 0.3s ease;
     }
 
     .socials a:hover {
       transform: scale(1.3);
-      color: white;
+      color: #fff;
     }
 
-    section {
-      padding: 6rem 2rem 3rem;
+    .parallax-section {
+      position: relative;
+      padding: 6rem 2rem;
+      background: linear-gradient(135deg, #1f1c2c, #928dab);
+      overflow: hidden;
+    }
+
+    .parallax-section::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(0, 192, 255, 0.1), transparent 70%);
+      animation: rotateBG 30s linear infinite;
+      z-index: 0;
+    }
+
+    @keyframes rotateBG {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+
+    .section-content {
+      position: relative;
+      z-index: 2;
       max-width: 1000px;
       margin: auto;
     }
 
     h3 {
-      font-size: 2.5rem;
+      font-size: 2.4rem;
       text-align: center;
-      color: var(--accent-color);
       font-family: 'Righteous', cursive;
+      color: var(--accent-color);
       margin-bottom: 1rem;
     }
 
-    .card {
-      background: var(--glass);
-      backdrop-filter: blur(10px);
-      border-radius: 15px;
-      padding: 2rem;
-      margin-bottom: 2rem;
-      box-shadow: 0 0 15px rgba(0, 192, 255, 0.2);
-      transition: transform 0.3s ease;
+    h3::after {
+      content: '';
+      display: block;
+      width: 60px;
+      height: 4px;
+      background: var(--accent-color);
+      margin: 0.5rem auto 2rem;
+      border-radius: 2px;
     }
 
-    .card:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 0 25px rgba(0, 192, 255, 0.5);
+    .floating-card {
+      background: rgba(255, 255, 255, 0.08);
+      border-radius: 20px;
+      padding: 2rem;
+      margin: 2rem 0;
+      box-shadow: 0 10px 30px rgba(0, 192, 255, 0.15);
+      transition: transform 0.4s ease, box-shadow 0.4s ease;
+      backdrop-filter: blur(6px);
+    }
+
+    .floating-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 14px 40px rgba(0, 192, 255, 0.4);
     }
 
     iframe {
@@ -158,97 +191,108 @@
       color: #aaa;
     }
 
+    .trail-dot {
+      position: absolute;
+      height: 8px;
+      width: 8px;
+      background-color: #00c0ff;
+      border-radius: 50%;
+      pointer-events: none;
+      animation: fadeOut 0.6s forwards;
+      z-index: 9999;
+    }
+
+    @keyframes fadeOut {
+      0% { opacity: 1; transform: scale(1); }
+      100% { opacity: 0; transform: scale(0.5); }
+    }
+
     @media (max-width: 768px) {
-      .hero h2 { font-size: 2.3rem; }
-      nav a { margin-left: 1rem; }
+      .hero h2 { font-size: 2.5rem; }
     }
   </style>
 </head>
 <body>
 
   <header>
-    <h1>Akshatha Kompally</h1>
+    <h1>Akshatha</h1>
     <nav>
       <a href="#about">About</a>
       <a href="#projects">Projects</a>
       <a href="#skills">Skills</a>
       <a href="#education">Education</a>
-      <a href="#location">Location</a>
       <a href="#contact">Contact</a>
     </nav>
   </header>
 
   <section class="hero">
     <h2>Hi, I'm Akshatha</h2>
-    <img src="myprofile.jpg" alt="Profile" />
-    <p id="animated-text">Aspiring AI Engineer | Full Stack Developer | ML Enthusiast</p>
+    <img src="myprofile.jpg" alt="Akshatha Kompally"/>
+    <p id="animated-text">Aspiring AI Engineer</p>
     <div class="socials">
       <a href="https://github.com/kakshatha-001" target="_blank"><i class="fab fa-github"></i></a>
       <a href="https://linkedin.com/in/kompally-akshatha" target="_blank"><i class="fab fa-linkedin"></i></a>
-      <a href="https://www.hackerrank.com/profile/akshathakompally" target="_blank"><i class="fab fa-hackerrank"></i></a>
-      <a href="https://www.geeksforgeeks.org/user/akshathakompally/" target="_blank"><i class="fas fa-code"></i></a>
+      <a href="https://hackerrank.com/profile/akshathakompally" target="_blank"><i class="fab fa-hackerrank"></i></a>
     </div>
   </section>
 
-  <section id="about" data-aos="fade-right">
-    <h3>About Me</h3>
-    <div class="card">
-      <p>I’m a final-year Computer Science student passionate about building intelligent systems. I blend AI and full-stack development to solve real-world problems with creativity and code.</p>
+  <section class="parallax-section" id="about">
+    <div class="section-content">
+      <h3>About Me</h3>
+      <div class="floating-card">
+        <p>Computer Science student passionate about AI, Web Development, and solving real-world problems through technology.</p>
+      </div>
     </div>
   </section>
 
-  <section id="projects" data-aos="zoom-in">
-    <h3>Projects</h3>
-    <div class="card">
-      <h4>🧠 ImageIntel</h4>
-      <p>Deep Learning-based image captioning tool using ViT + GPT-2. Built for visually impaired users with speech synthesis.</p>
-    </div>
-    <div class="card">
-      <h4>💼 Internal Office Web App</h4>
-      <p>Built a secure communication app using JSP, JavaScript, Oracle, and Apache Tomcat during internship at DRDL.</p>
-    </div>
-  </section>
-
-  <section id="skills" data-aos="fade-left">
-    <h3>Skills</h3>
-    <div class="card">
-      <ul>
-        <li><strong>Languages:</strong> Python, C, C++, Java</li>
-        <li><strong>Web:</strong> HTML, CSS, JavaScript, PHP, JSP</li>
-        <li><strong>AI/ML:</strong> PyTorch, TensorFlow, Transformers</li>
-        <li><strong>Databases:</strong> SQL, Oracle, MongoDB</li>
-      </ul>
+  <section class="parallax-section" id="projects">
+    <div class="section-content">
+      <h3>Projects</h3>
+      <div class="floating-card">
+        <h4>ImageIntel (Osmania University)</h4>
+        <p>AI tool using ViT + GPT-2 for image captioning with real-time speech feedback (86% accuracy).</p>
+      </div>
+      <div class="floating-card">
+        <h4>Secure Web App (DRDL)</h4>
+        <p>Built JSP-based secure internal web app for communication using Oracle and JavaScript.</p>
+      </div>
     </div>
   </section>
 
-  <section id="education" data-aos="fade-up">
-    <h3>Education</h3>
-    <div class="card">
-      <ul>
-        <li><strong>B.E. CSE</strong> – MVSR Engineering College (CGPA: 9.61)</li>
-        <li><strong>Intermediate</strong> – Narayana College (98.2%)</li>
-        <li><strong>SSC</strong> – Little Flower High School (CGPA: 9.8)</li>
-      </ul>
+  <section class="parallax-section" id="skills">
+    <div class="section-content">
+      <h3>Skills</h3>
+      <div class="floating-card">
+        <ul>
+          <li><strong>Languages:</strong> Python, C, C++, Java</li>
+          <li><strong>Web:</strong> HTML, CSS, JS, PHP, JSP</li>
+          <li><strong>AI Tools:</strong> PyTorch, TensorFlow, Transformers</li>
+          <li><strong>Databases:</strong> SQL, Oracle, MongoDB</li>
+        </ul>
+      </div>
     </div>
   </section>
 
-  <section id="location" data-aos="zoom-in-up">
-    <h3>Location</h3>
-    <div class="card">
-      <iframe
-        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3806.176690588868!2d78.47668157514207!3d17.44775308342306!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcb9bc6d935982b%3A0xc8e90cf69a5c39ea!2sHyderabad%2C%20Telangana!5e0!3m2!1sen!2sin!4v1721483913123!5m2!1sen!2sin"
-        allowfullscreen=""
-        loading="lazy"
-        referrerpolicy="no-referrer-when-downgrade">
-      </iframe>
+  <section class="parallax-section" id="education">
+    <div class="section-content">
+      <h3>Education</h3>
+      <div class="floating-card">
+        <ul>
+          <li><strong>B.E. CSE</strong> – MVSR Engineering College (CGPA: 9.61)</li>
+          <li><strong>Intermediate</strong> – Narayana College (98.2%)</li>
+          <li><strong>SSC</strong> – Little Flower High School (CGPA: 9.8)</li>
+        </ul>
+      </div>
     </div>
   </section>
 
-  <section id="contact" data-aos="fade-up">
-    <h3>Contact</h3>
-    <div class="card">
-      <p><strong>Email:</strong> <a href="mailto:akshathakompally@gmail.com">akshathakompally@gmail.com</a></p>
-      <p><strong>Phone:</strong> +91 9701536579</p>
+  <section class="parallax-section" id="contact">
+    <div class="section-content">
+      <h3>Contact</h3>
+      <div class="floating-card">
+        <p>Email: <a href="mailto:akshathakompally@gmail.com">akshathakompally@gmail.com</a></p>
+        <p>Phone: +91 9701536579</p>
+      </div>
     </div>
   </section>
 
@@ -256,8 +300,27 @@
     <p>&copy; 2025 Akshatha Kompally. All rights reserved.</p>
   </footer>
 
+  <!-- Cursor trail -->
   <script>
-    AOS.init({ duration: 1000, once: true });
+    document.addEventListener("mousemove", (e) => {
+      const dot = document.createElement("div");
+      dot.className = "trail-dot";
+      dot.style.left = e.pageX + "px";
+      dot.style.top = e.pageY + "px";
+      document.body.appendChild(dot);
+      setTimeout(() => dot.remove(), 600);
+    });
+
+    // Animated text
+    const animatedText = document.getElementById('animated-text');
+    const roles = ["Aspiring AI Engineer", "Full Stack Developer", "ML Enthusiast"];
+    let i = 0;
+    setInterval(() => {
+      animatedText.textContent = roles[i];
+      i = (i + 1) % roles.length;
+    }, 3000);
+
+    AOS.init();
   </script>
 </body>
 </html>
