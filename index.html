@@ -12,15 +12,18 @@
 
   <style>
     :root {
-      --primary: #333;
+      --primary: #1a1a2e;
       --accent: #00bcd4;
-      --bg: #f5f7fa;
-      --card-bg: #fff;
+      --highlight: #ffd700;
+      --bg: #f0f8ff;
+      --card-bg: #ffffff;
       --text: #222;
     }
 
     * {
-      margin: 0; padding: 0; box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
       font-family: 'Poppins', sans-serif;
     }
 
@@ -28,6 +31,7 @@
       background: var(--bg);
       color: var(--text);
       overflow-x: hidden;
+      position: relative;
     }
 
     header {
@@ -36,7 +40,7 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
       position: fixed;
       width: 100%;
       top: 0;
@@ -55,7 +59,7 @@
     }
 
     nav a:hover {
-      color: var(--accent);
+      color: var(--highlight);
     }
 
     .hero {
@@ -63,13 +67,34 @@
       flex-wrap: wrap;
       justify-content: center;
       align-items: center;
-      padding: 120px 2rem 3rem;
-      background: linear-gradient(to right, #e0f7fa, #ffffff);
+      padding: 140px 2rem 3rem;
+      background: linear-gradient(120deg, #e0f7fa 0%, #fff 100%);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      width: 300px;
+      height: 300px;
+      background: radial-gradient(circle at 50% 50%, var(--accent), transparent);
+      top: -50px;
+      left: -50px;
+      opacity: 0.2;
+      border-radius: 50%;
+      animation: float 6s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(20px); }
     }
 
     .hero-text {
       flex: 1;
       padding: 1rem 2rem;
+      z-index: 2;
     }
 
     .hero-text h2 {
@@ -81,13 +106,14 @@
       margin-top: 1rem;
       font-size: 1.1rem;
       line-height: 1.7;
-      color: #444;
+      color: #333;
     }
 
     .hero-image {
       flex: 1;
       padding: 1rem 2rem;
       text-align: center;
+      z-index: 2;
     }
 
     .hero-image img {
@@ -116,7 +142,7 @@
       text-align: center;
     }
 
-    .skills, .timeline, .projects {
+    .skills, .projects, .timeline {
       display: flex;
       flex-wrap: wrap;
       gap: 1.5rem;
@@ -129,12 +155,12 @@
       border-radius: 12px;
       box-shadow: 0 0 15px rgba(0,0,0,0.06);
       flex: 1 1 250px;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      transition: 0.3s ease;
     }
 
     .card:hover {
       transform: translateY(-8px);
-      box-shadow: 0 12px 25px rgba(0, 0, 0, 0.1);
+      box-shadow: 0 12px 25px rgba(0, 188, 212, 0.3);
     }
 
     .card h4 {
@@ -144,9 +170,9 @@
 
     .badge {
       display: inline-block;
-      background: #e0f7fa;
+      background: #e3f2fd;
       color: var(--accent);
-      padding: 5px 12px;
+      padding: 6px 12px;
       margin: 3px;
       border-radius: 10px;
       font-size: 0.85rem;
@@ -157,8 +183,8 @@
     }
 
     .timeline-item h4 {
-      margin-bottom: 0.5rem;
       color: var(--primary);
+      margin-bottom: 0.5rem;
     }
 
     .socials {
@@ -169,28 +195,65 @@
       margin: 0 10px;
       font-size: 1.5rem;
       color: var(--accent);
+      transition: color 0.3s ease;
     }
 
     .socials a:hover {
-      color: #333;
+      color: var(--highlight);
     }
 
     footer {
       text-align: center;
       padding: 2rem;
-      background: #e0e0e0;
-      color: #333;
+      background: #eceff1;
+      color: #555;
     }
 
+    /* Responsive */
     @media(max-width: 768px) {
       .hero {
         flex-direction: column;
         text-align: center;
       }
     }
+
+    /* SVG Background Elements */
+    .graphic-bg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      pointer-events: none;
+    }
+
+    .graphic-bg svg {
+      position: absolute;
+      fill: rgba(0, 188, 212, 0.05);
+      animation: move 20s infinite linear;
+    }
+
+    @keyframes move {
+      from { transform: translateY(0); }
+      to { transform: translateY(-100px); }
+    }
   </style>
 </head>
 <body>
+
+<div class="graphic-bg">
+  <svg width="300" height="300" style="top: 10%; left: 5%;">
+    <circle cx="150" cy="150" r="100" />
+  </svg>
+  <svg width="200" height="200" style="top: 50%; left: 80%;">
+    <rect width="200" height="200" rx="30" />
+  </svg>
+  <svg width="100" height="100" style="top: 80%; left: 20%;">
+    <polygon points="0,100 50,0 100,100" />
+  </svg>
+</div>
 
 <header data-aos="fade-down">
   <h1>Akshatha</h1>
@@ -206,7 +269,9 @@
   <div class="hero-text" data-aos="fade-right">
     <h2>Hi, I'm Akshatha</h2>
     <p>
-      I am a Computer Science student passionate about Artificial Intelligence and Web Development. With experience in full-stack technologies and deep learning projects, I enjoy building real-world solutions that combine creativity and logic.
+      I am a Computer Science student passionate about Artificial Intelligence and Web Development.
+      With experience in full-stack technologies and deep learning projects, I enjoy building real-world
+      solutions that combine creativity and logic.
     </p>
     <div class="socials">
       <a href="https://github.com/kakshatha-001"><i class="fab fa-github"></i></a>
@@ -246,15 +311,13 @@
   <div class="projects">
     <div class="card" data-aos="zoom-in-up">
       <h4>ImageIntel</h4>
-      <p>AI captioning tool using ViT + GPT-2 with speech feedback for the visually impaired.</p>
-      <span class="badge">Transformers</span>
-      <span class="badge">gTTS</span>
-      <span class="badge">Python</span>
+      <p>Developed an efficient Automated Scene Understanding, Image Captioning and Speech synthesis system, ImageIntel to assist visually impaired individuals, using pre-trained VisionEncoderDecoder model combining ViT and GPT-2 for image captioning and and enhanced the quality of captions with 86% accuracy</p>
+      <span class="badge">Python</span><span class="badge">Transformers</span><span class="badge">OpenCV</span><span class="badge">YOLOv8</span><span class="badge">gTTS</span><span class="badge">Python</span>
     </div>
     <div class="card" data-aos="zoom-in-up" data-aos-delay="150">
       <h4>Secure Web App</h4>
-      <p>Internal JSP web app for DRDL communication secured with Oracle DB and Tomcat.</p>
-      <span class="badge">JSP</span><span class="badge">Oracle</span><span class="badge">JavaScript</span>
+      <p>Designed and implemented a robust, interactive web application for internal office communication. The application enhances efficiency and security by providing a responsive platform for seamless and secure data transfer within the organization, allowing real time communication.</p>
+      <span class="badge">Apache Tomcat</span><span class="badge">HTML</span><span class="badge">CSS</span><span class="badge">Eclipse</span><span class="badge">JSP</span><span class="badge">Oracle</span><span class="badge">JavaScript</span>
     </div>
   </div>
 </section>
@@ -289,13 +352,10 @@
   <p>&copy; 2025 Akshatha Kompally. All rights reserved.</p>
 </footer>
 
-<!-- AOS Script -->
+<!-- AOS JS -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
 <script>
-  AOS.init({
-    duration: 1000,
-    once: true,
-  });
+  AOS.init({ duration: 1000, once: true });
 </script>
 
 </body>
