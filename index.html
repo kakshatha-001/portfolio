@@ -1,20 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Akshatha Kompally | Portfolio</title>
 
   <!-- Fonts and Icons -->
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&family=Righteous&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&family=Righteous&display=swap" rel="stylesheet"/>
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet"/>
   <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet"/>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
 
   <style>
     :root {
-      --main-color: #00c9ff;
-      --accent-color: #8b00ff;
+      --main-color: #4e44ce;
+      --accent-color: #00c0ff;
       --bg-color: #0f0c29;
       --text-color: #ffffff;
     }
@@ -28,16 +28,13 @@
     }
 
     body {
-      background: linear-gradient(to bottom, #0f0c29, #24243e, #302b63);
-      background-attachment: fixed;
+      background: linear-gradient(to right, #0f0c29, #302b63, #24243e);
       color: var(--text-color);
       overflow-x: hidden;
-      position: relative;
     }
 
     header {
-      background: linear-gradient(to right, #000000cc, #00000088);
-      backdrop-filter: blur(6px);
+      background: rgba(0, 0, 0, 0.85);
       padding: 1rem 2rem;
       position: fixed;
       width: 100%;
@@ -46,8 +43,7 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      border-bottom: 1px solid rgba(0, 192, 255, 0.2);
-      box-shadow: 0 4px 12px rgba(0, 192, 255, 0.1);
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.6);
     }
 
     header h1 {
@@ -99,7 +95,6 @@
     #animated-text {
       font-size: 1.6rem;
       margin-top: 0.5rem;
-      color: var(--accent-color);
     }
 
     .socials {
@@ -121,27 +116,25 @@
     .parallax-section {
       position: relative;
       padding: 6rem 2rem;
-      background: linear-gradient(145deg, #12101f, #1e1b3a);
+      background: linear-gradient(135deg, #1f1c2c, #928dab);
       overflow: hidden;
-      border-top: 1px solid rgba(0, 192, 255, 0.1);
-      border-bottom: 1px solid rgba(0, 192, 255, 0.1);
     }
 
     .parallax-section::before {
       content: '';
       position: absolute;
-      top: 0;
-      left: 0;
-      width: 300%;
-      height: 300%;
-      background-image: repeating-radial-gradient(circle at center, rgba(0, 192, 255, 0.04), transparent 120px);
-      animation: scrollBg 60s linear infinite;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(0, 192, 255, 0.1), transparent 70%);
+      animation: rotateBG 30s linear infinite;
       z-index: 0;
     }
 
-    @keyframes scrollBg {
-      0% { transform: translate(0, 0); }
-      100% { transform: translate(-20%, -20%); }
+    @keyframes rotateBG {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
     }
 
     .section-content {
@@ -169,8 +162,14 @@
       border-radius: 2px;
     }
 
+    h4 {
+      font-size: 1.5rem;
+      color: #f5b301;
+      margin-bottom: 1rem;
+    }
+
     .floating-card {
-      background: rgba(255, 255, 255, 0.05);
+      background: rgba(255, 255, 255, 0.08);
       border-radius: 20px;
       padding: 2rem;
       margin: 2rem 0;
@@ -181,14 +180,7 @@
 
     .floating-card:hover {
       transform: translateY(-10px);
-      box-shadow: 0 14px 40px rgba(0, 192, 255, 0.3);
-    }
-
-    footer {
-      text-align: center;
-      padding: 2rem;
-      background: #000;
-      color: #aaa;
+      box-shadow: 0 14px 40px rgba(0, 192, 255, 0.4);
     }
 
     .badge {
@@ -209,6 +201,36 @@
       color: #000;
     }
 
+    iframe {
+      width: 100%;
+      height: 400px;
+      border: 0;
+      border-radius: 10px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem;
+      background: #000;
+      color: #aaa;
+    }
+
+    .trail-dot {
+      position: absolute;
+      height: 8px;
+      width: 8px;
+      background-color: #00c0ff;
+      border-radius: 50%;
+      pointer-events: none;
+      animation: fadeOut 0.6s forwards;
+      z-index: 9999;
+    }
+
+    @keyframes fadeOut {
+      0% { opacity: 1; transform: scale(1); }
+      100% { opacity: 0; transform: scale(0.5); }
+    }
+
     @media (max-width: 768px) {
       .hero h2 { font-size: 2.5rem; }
     }
@@ -220,7 +242,6 @@
     <h1>Akshatha Kompally</h1>
     <nav>
       <a href="#about">About</a>
-      <a href="#projects">Projects</a>
       <a href="#skills">Skills</a>
       <a href="#education">Education</a>
       <a href="#contact">Contact</a>
@@ -229,13 +250,13 @@
 
   <section class="hero">
     <h2>Hey, I'm Akshatha</h2>
-    <img src="akshathaprofile.jpg" alt="Akshatha Kompally" />
+    <img src="akshathaprofile.jpg" alt="Akshatha Kompally"/>
     <p id="animated-text">Aspiring AI Engineer</p>
     <div class="socials">
       <a href="https://github.com/kakshatha-001" target="_blank"><i class="fab fa-github"></i></a>
-      <a href="https://www.linkedin.com/in/kompally-akshatha/" target="_blank"><i class="fab fa-linkedin"></i></a>
+      <a href="https://linkedin.com/in/kompally-akshatha/" target="_blank"><i class="fab fa-linkedin"></i></a>
       <a href="https://www.hackerrank.com/profile/akshathakompally" target="_blank"><i class="fab fa-hackerrank"></i></a>
-      <a href="https://leetcode.com/u/akshathakompally/" target="_blank" title="LeetCode"><i class="fas fa-code"></i></a>
+      <a href="https://leetcode.com/u/akshathakompally/" target="_blank"><i class="fas fa-code"></i></a>
       <a href="mailto:akshathakompally@gmail.com"><i class="fas fa-envelope"></i></a>
     </div>
   </section>
@@ -244,40 +265,7 @@
     <div class="section-content">
       <h3>About Me</h3>
       <div class="floating-card">
-        <p>I am a Computer Science student passionate about Artificial Intelligence, Machine Learning, and Full Stack Web Development. 
-          With a strong foundation in data structures, algorithms, and core programming concepts, I aim to develop intelligent systems that can effectively address real-world challenges.
-          I have hands-on experience in building AI-powered applications, image captioning systems, and secure web platforms. 
-          My projects integrate state-of-the-art technologies like PyTorch, Transformers, and modern web frameworks.
-          I enjoy transforming complex problems into user-centric solutions that are functional, scalable, and intuitive. 
-          I'm particularly driven by the intersection of creativity and logic, where software engineering meets human-centered design.
-          Always eager to learn and grow, I actively explore open-source contributions, participate in coding challenges, and collaborate on innovative tech initiatives.</p>
-      </div>
-    </div>
-  </section>
-
-  <section class="parallax-section" id="projects">
-    <div class="section-content">
-      <h3>Projects</h3>
-      <div class="floating-card">
-        <h4>ImageIntel (Osmania University)</h4>
-        <p>AI tool using ViT + GPT-2 for image captioning with real-time speech feedback (86% accuracy).</p>
-        <div>
-          <span class="badge">Python</span>
-          <span class="badge">PyTorch</span>
-          <span class="badge">Transformers</span>
-          <span class="badge">gTTS</span>
-        </div>
-      </div>
-
-      <div class="floating-card">
-        <h4>Secure Web App (DRDL)</h4>
-        <p>Built JSP-based secure internal web app for communication using Oracle and JavaScript.</p>
-        <div>
-          <span class="badge">JavaScript</span>
-          <span class="badge">JSP</span>
-          <span class="badge">Oracle SQL</span>
-          <span class="badge">HTML/CSS</span>
-        </div>
+        <p>I am a Computer Science student passionate about Artificial Intelligence and Web Development. With experience in full-stack technologies and deep learning projects, I enjoy building real-world solutions that combine creativity and logic. I'm always exploring new tools and learning emerging trends to create smarter, scalable, and accessible software.</p>
       </div>
     </div>
   </section>
@@ -285,13 +273,39 @@
   <section class="parallax-section" id="skills">
     <div class="section-content">
       <h3>Skills</h3>
-      <div class="floating-card">
-        <ul>
-          <li><strong>Languages:</strong> Python, C, C++, Java</li>
-          <li><strong>Web:</strong> HTML, CSS, JS, PHP, JSP</li>
-          <li><strong>AI Tools:</strong> PyTorch, TensorFlow, Transformers</li>
-          <li><strong>Databases:</strong> SQL, Oracle, MongoDB</li>
-        </ul>
+      <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 2rem;">
+
+        <div class="floating-card" style="flex: 1; min-width: 240px;">
+          <h4>Languages</h4>
+          <span class="badge">Python</span>
+          <span class="badge">C</span>
+          <span class="badge">C++</span>
+          <span class="badge">Java</span>
+        </div>
+
+        <div class="floating-card" style="flex: 1; min-width: 240px;">
+          <h4>Web</h4>
+          <span class="badge">HTML</span>
+          <span class="badge">CSS</span>
+          <span class="badge">JavaScript</span>
+          <span class="badge">PHP</span>
+          <span class="badge">JSP</span>
+        </div>
+
+        <div class="floating-card" style="flex: 1; min-width: 240px;">
+          <h4>AI Tools</h4>
+          <span class="badge">PyTorch</span>
+          <span class="badge">TensorFlow</span>
+          <span class="badge">Transformers</span>
+        </div>
+
+        <div class="floating-card" style="flex: 1; min-width: 240px;">
+          <h4>Databases</h4>
+          <span class="badge">SQL</span>
+          <span class="badge">Oracle</span>
+          <span class="badge">MongoDB</span>
+        </div>
+
       </div>
     </div>
   </section>
@@ -301,9 +315,9 @@
       <h3>Education</h3>
       <div class="floating-card">
         <ul>
-          <li><strong>B.E. CSE</strong> – MVSR Engineering College (CGPA: 9.53)</li>
-          <li><strong>Intermediate</strong> – Narayana Junior College (98.2%)</li>
-          <li><strong>SSC</strong> – Little Flower High School (CGPA: 9.8)</li>
+          <li><strong>B.E. CSE</strong> – MVSR Engineering College (2021–2025)</li>
+          <li><strong>Intermediate</strong> – Narayana Jr College (2019–2021)</li>
+          <li><strong>SSC</strong> – Little Flower High School (2018–2019)</li>
         </ul>
       </div>
     </div>
@@ -314,8 +328,8 @@
       <h3>Contact</h3>
       <div class="floating-card">
         <p>Email: <a href="mailto:akshathakompally@gmail.com">akshathakompally@gmail.com</a></p>
+        <p>Location: <a href="https://maps.app.goo.gl/M4Q1sA1o586s3xny9" target="_blank">Google Maps</a></p>
         <p>Phone: +91 9701536579</p>
-        <p>Location: <a href="https://maps.app.goo.gl/M4Q1sA1o586s3xny9" target="_blank">Hyderabad, Telangana</a></p>
       </div>
     </div>
   </section>
@@ -324,7 +338,18 @@
     <p>&copy; 2025 Akshatha Kompally. All rights reserved.</p>
   </footer>
 
+  <!-- Cursor Trail -->
   <script>
+    document.addEventListener("mousemove", (e) => {
+      const dot = document.createElement("div");
+      dot.className = "trail-dot";
+      dot.style.left = e.pageX + "px";
+      dot.style.top = e.pageY + "px";
+      document.body.appendChild(dot);
+      setTimeout(() => dot.remove(), 600);
+    });
+
+    // Animated typing text
     const animatedText = document.getElementById('animated-text');
     const roles = ["Aspiring AI Engineer", "Full Stack Developer", "ML Enthusiast"];
     let i = 0;
@@ -332,7 +357,9 @@
       animatedText.textContent = roles[i];
       i = (i + 1) % roles.length;
     }, 3000);
+
     AOS.init();
   </script>
+
 </body>
 </html>
