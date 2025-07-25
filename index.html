@@ -1,11 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Akshatha Kompally | Portfolio</title>
 
-  <!-- Fonts and Icons -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&family=Righteous&display=swap" rel="stylesheet"/>
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet"/>
   <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet"/>
@@ -13,208 +12,164 @@
 
   <style>
     :root {
-      --main-color: #4e44ce;
-      --accent-color: #00c0ff;
-      --bg-color: #0f0c29;
-      --text-color: #ffffff;
+      --accent: #00c0ff;
+      --bg: #0f0c29;
+      --text: #ffffff;
+      --glass: rgba(255, 255, 255, 0.08);
+    }
+
+    * {
+      margin: 0; padding: 0; box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+      scroll-behavior: smooth;
     }
 
     body {
-      margin: 0;
-      font-family: 'Poppins', sans-serif;
-      background: linear-gradient(to right, #0f0c29, #302b63, #24243e);
-      color: var(--text-color);
+      background: radial-gradient(circle at 20% 20%, #1f1c2c, #0f0c29);
+      color: var(--text);
       overflow-x: hidden;
     }
 
     header {
-      position: fixed;
-      width: 100%;
-      top: 0;
-      background: rgba(0, 0, 0, 0.8);
-      padding: 1rem 2rem;
-      z-index: 999;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
+      position: fixed; top: 0; width: 100%; z-index: 1000;
+      background: rgba(0,0,0,0.85);
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 1rem 2rem; box-shadow: 0 2px 10px rgba(0,0,0,0.6);
     }
 
     header h1 {
-      font-size: 1.8rem;
       font-family: 'Righteous', cursive;
-      color: var(--accent-color);
+      font-size: 1.8rem; color: var(--accent);
     }
 
     nav a {
-      color: white;
-      margin-left: 1.5rem;
-      text-decoration: none;
-      font-weight: 500;
-      transition: color 0.3s;
+      margin-left: 1.5rem; text-decoration: none; color: white;
+      font-weight: 500; transition: 0.3s;
     }
 
-    nav a:hover {
-      color: var(--accent-color);
-    }
+    nav a:hover { color: var(--accent); }
 
     .hero {
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      background: radial-gradient(circle at center, #1f1c2c, #0f0c29);
-      position: relative;
+      display: flex; flex-direction: column;
+      justify-content: center; align-items: center;
+      text-align: center; min-height: 100vh;
+      background: linear-gradient(160deg, #1f1c2c 20%, #24243e 100%);
+      padding-top: 100px;
     }
 
     .hero img {
-      width: 180px;
-      height: 180px;
-      border-radius: 50%;
-      border: 4px solid var(--accent-color);
-      box-shadow: 0 0 30px rgba(0, 192, 255, 0.3);
+      width: 180px; height: 180px; border-radius: 50%;
+      border: 3px solid var(--accent);
+      box-shadow: 0 5px 20px rgba(0,0,0,0.5);
     }
 
     .hero h2 {
-      font-size: 3rem;
-      margin-top: 1rem;
+      font-family: 'Righteous', cursive;
+      font-size: 3rem; margin: 1rem 0 0.3rem;
     }
 
-    .hero #typed-text {
-      font-size: 1.5rem;
-      color: var(--accent-color);
-      margin-top: 0.5rem;
-      height: 30px;
+    .typing {
+      font-size: 1.4rem; color: var(--accent); height: 30px;
+      border-right: 2px solid #fff; white-space: nowrap;
+      overflow: hidden;
+      animation: typing 3s steps(30) infinite alternate, blink 0.7s infinite;
     }
 
-    .socials {
-      margin-top: 1rem;
+    @keyframes typing {
+      0% { width: 0 }
+      100% { width: 18ch }
+    }
+
+    @keyframes blink {
+      0%, 100% { border-color: transparent; }
+      50% { border-color: white; }
     }
 
     .socials a {
-      margin: 0 10px;
-      color: var(--accent-color);
-      font-size: 1.5rem;
-      transition: transform 0.3s ease;
+      font-size: 1.5rem; margin: 0 10px;
+      color: var(--accent); transition: 0.3s;
     }
 
-    .socials a:hover {
-      transform: scale(1.2);
-      color: white;
-    }
+    .socials a:hover { transform: scale(1.3); color: white; }
 
     .section {
-      padding: 5rem 2rem;
-      max-width: 1000px;
-      margin: auto;
+      padding: 4rem 2rem; max-width: 1000px; margin: auto;
     }
 
-    h3 {
-      font-size: 2rem;
-      text-align: center;
-      margin-bottom: 2rem;
-      color: var(--accent-color);
+    .section h3 {
+      text-align: center; font-family: 'Righteous', cursive;
+      font-size: 2.2rem; color: var(--accent); margin-bottom: 1rem;
     }
 
-    .skills-list li {
-      margin-bottom: 10px;
+    .card {
+      background: var(--glass);
+      border-radius: 20px;
+      padding: 1.5rem;
+      margin: 1rem 0;
+      box-shadow: 0 0 15px rgba(0, 192, 255, 0.1);
+      backdrop-filter: blur(10px);
     }
 
-    .progress-container {
-      margin-bottom: 1rem;
-    }
-
-    .progress-bar {
-      background: rgba(255, 255, 255, 0.1);
-      border-radius: 8px;
-      overflow: hidden;
-    }
-
-    .progress-bar-inner {
-      height: 14px;
-      background: var(--accent-color);
-      width: 0;
-      transition: width 2s ease;
+    .badge {
+      display: inline-block; font-size: 0.85rem;
+      background: rgba(0, 192, 255, 0.15); padding: 4px 10px;
+      margin: 3px; border: 1px solid var(--accent);
+      border-radius: 12px; color: var(--accent);
     }
 
     .timeline {
-      position: relative;
-      margin: 2rem 0;
-      padding-left: 20px;
-      border-left: 3px solid var(--accent-color);
+      position: relative; margin-top: 2rem;
+    }
+
+    .timeline::before {
+      content: ''; position: absolute;
+      left: 20px; top: 0; bottom: 0;
+      width: 4px; background: var(--accent);
     }
 
     .timeline-item {
-      margin-bottom: 2rem;
+      margin-left: 60px; margin-bottom: 2rem;
+      position: relative;
     }
 
     .timeline-item::before {
-      content: "";
-      position: absolute;
-      left: -9px;
-      background: var(--accent-color);
-      border-radius: 50%;
-      width: 16px;
-      height: 16px;
-      top: 5px;
+      content: ''; position: absolute;
+      top: 4px; left: -42px; width: 14px; height: 14px;
+      border-radius: 50%; background: var(--accent);
+      border: 2px solid white;
     }
 
     iframe {
-      width: 100%;
-      height: 350px;
-      border-radius: 10px;
-      border: none;
-      margin-top: 1rem;
+      width: 100%; height: 300px;
+      border: none; border-radius: 10px; margin-top: 1rem;
     }
 
     footer {
-      text-align: center;
-      padding: 2rem;
-      background: #000;
+      text-align: center; padding: 1.5rem; background: #000;
       color: #aaa;
     }
 
-    .trail-dot {
-      position: absolute;
-      width: 6px;
-      height: 6px;
-      background-color: var(--accent-color);
-      border-radius: 50%;
-      pointer-events: none;
-      animation: fadeOut 0.6s forwards;
+    /* Scroll Indicator */
+    .scroll-indicator {
+      position: fixed; right: 10px; top: 50%;
+      width: 4px; height: 100px;
+      background: var(--glass); z-index: 1000;
     }
 
-    @keyframes fadeOut {
-      0% { opacity: 1; transform: scale(1); }
-      100% { opacity: 0; transform: scale(0.5); }
+    .scroll-indicator::after {
+      content: ''; position: absolute;
+      width: 100%; height: 30%;
+      background: var(--accent);
+      animation: scrollmove 3s linear infinite;
     }
 
-    /* Theme toggle */
-    .theme-toggle {
-      position: fixed;
-      top: 20px;
-      right: 20px;
-      background: var(--accent-color);
-      border: none;
-      color: black;
-      font-weight: bold;
-      padding: 10px 16px;
-      border-radius: 50%;
-      cursor: pointer;
-      z-index: 1001;
-      transition: 0.3s;
-    }
-
-    .theme-toggle:hover {
-      background: #00a8e0;
+    @keyframes scrollmove {
+      0% { top: 0; }
+      100% { top: 70%; }
     }
   </style>
 </head>
 <body>
-
-  <button class="theme-toggle" onclick="toggleTheme()">🌓</button>
-
   <header>
     <h1>Akshatha</h1>
     <nav>
@@ -222,162 +177,103 @@
       <a href="#projects">Projects</a>
       <a href="#skills">Skills</a>
       <a href="#education">Education</a>
-      <a href="#location">Location</a>
+      <a href="#contact">Contact</a>
     </nav>
   </header>
 
+  <div class="scroll-indicator"></div>
+
   <section class="hero">
-    <img src="akshathaprofile.jpg" alt="Akshatha" />
+    <img src="profile.jpg" alt="Akshatha">
     <h2>Hi, I'm Akshatha</h2>
-    <div id="typed-text"></div>
+    <div class="typing">Aspiring AI & Full Stack Developer</div>
     <div class="socials">
       <a href="https://github.com/kakshatha-001" target="_blank"><i class="fab fa-github"></i></a>
-      <a href="https://linkedin.com/in/kompally-akshatha" target="_blank"><i class="fab fa-linkedin"></i></a>
-      <a href="https://hackerrank.com/profile/akshathakompally" target="_blank"><i class="fab fa-hackerrank"></i></a>
-      <a href="https://www.geeksforgeeks.org/user/akshathakompally/" target="_blank"><i class="fas fa-code"></i></a>
-      <a href="https://leetcode.com/u/akshathakompally/" target="_blank"><i class="fas fa-code-branch"></i></a>
+      <a href="https://www.linkedin.com/in/kompally-akshatha/" target="_blank"><i class="fab fa-linkedin"></i></a>
+      <a href="https://leetcode.com/u/akshathakompally/" target="_blank"><i class="fas fa-code"></i></a>
+      <a href="https://www.geeksforgeeks.org/user/akshathakompally/" target="_blank"><i class="fas fa-terminal"></i></a>
+      <a href="https://www.hackerrank.com/profile/akshathakompally" target="_blank"><i class="fab fa-hackerrank"></i></a>
     </div>
   </section>
 
   <section class="section" id="about">
     <h3>About Me</h3>
-    <p>I’m a passionate Computer Science student with a deep interest in Artificial Intelligence and Full Stack Web Development. I love creating smart, scalable, and accessible applications. My current work involves image captioning, secure web development, and AI-powered tools.</p>
+    <div class="card">
+      <p>I am a Computer Science student passionate about Artificial Intelligence and Web Development. With experience in full-stack technologies and deep learning projects, I enjoy building real-world solutions that combine creativity and logic.</p>
+    </div>
   </section>
 
   <section class="section" id="projects">
-    <h3>Projects</h3>
-    <ul>
-      <li><strong>ImageIntel (Osmania University)</strong>: AI-powered image captioning tool using ViT + GPT-2 with gTTS for speech. <br><em>Tools:</em> PyTorch, Transformers, Python, gTTS</li>
-      <li><strong>Secure Web App (DRDL)</strong>: Internal secure JSP-based communication platform using Oracle DB and Tomcat. <br><em>Tools:</em> JSP, JavaScript, Oracle DB, Apache</li>
-    </ul>
+    <h3>Projects & Internships</h3>
+
+    <div class="card">
+      <h4>ImageIntel – Osmania University</h4>
+      <p>Developed an assistive system for visually impaired using ViT-GPT2 for image captioning and gTTS for speech feedback. Achieved 86% caption accuracy.</p>
+      <div>
+        <span class="badge">Python</span>
+        <span class="badge">PyTorch</span>
+        <span class="badge">gTTS</span>
+        <span class="badge">Transformers</span>
+      </div>
+    </div>
+
+    <div class="card">
+      <h4>Secure Web App – DRDL</h4>
+      <p>Designed a secure internal communication app using JSP, Oracle, JavaScript to enhance internal office workflows.</p>
+      <div>
+        <span class="badge">HTML</span>
+        <span class="badge">CSS</span>
+        <span class="badge">JavaScript</span>
+        <span class="badge">JSP</span>
+        <span class="badge">Oracle</span>
+      </div>
+    </div>
   </section>
 
   <section class="section" id="skills">
     <h3>Skills</h3>
-    <div class="progress-container">
-      Python (4/5)
-      <div class="progress-bar"><div class="progress-bar-inner" style="width: 80%;"></div></div>
-    </div>
-    <div class="progress-container">
-      C (4/5)
-      <div class="progress-bar"><div class="progress-bar-inner" style="width: 80%;"></div></div>
-    </div>
-    <div class="progress-container">
-      C++ (3/5)
-      <div class="progress-bar"><div class="progress-bar-inner" style="width: 60%;"></div></div>
-    </div>
-    <div class="progress-container">
-      Java (3/5)
-      <div class="progress-bar"><div class="progress-bar-inner" style="width: 60%;"></div></div>
-    </div>
-    <div class="progress-container">
-      React (2/5)
-      <div class="progress-bar"><div class="progress-bar-inner" style="width: 40%;"></div></div>
-    </div>
-    <div class="progress-container">
-      HTML (4/5)
-      <div class="progress-bar"><div class="progress-bar-inner" style="width: 80%;"></div></div>
-    </div>
-    <div class="progress-container">
-      CSS (3/5)
-      <div class="progress-bar"><div class="progress-bar-inner" style="width: 60%;"></div></div>
-    </div>
-    <div class="progress-container">
-      JavaScript (3/5)
-      <div class="progress-bar"><div class="progress-bar-inner" style="width: 60%;"></div></div>
-    </div>
-    <div class="progress-container">
-      PHP (2/5)
-      <div class="progress-bar"><div class="progress-bar-inner" style="width: 40%;"></div></div>
-    </div>
-    <div class="progress-container">
-      JSP (2/5)
-      <div class="progress-bar"><div class="progress-bar-inner" style="width: 40%;"></div></div>
+    <div class="card">
+      <ul>
+        <li><strong>Languages:</strong> Python (4/5), C (4/5), C++ (3/5), Java (3/5)</li>
+        <li><strong>Web Development:</strong> HTML (4/5), CSS (3/5), JS (3/5), PHP (2/5), JSP (2/5)</li>
+        <li><strong>AI/ML:</strong> PyTorch, TensorFlow, Transformers, Image Captioning</li>
+        <li><strong>Databases:</strong> SQL, Oracle, MongoDB</li>
+      </ul>
     </div>
   </section>
 
   <section class="section" id="education">
-    <h3>Education Timeline</h3>
+    <h3>Education</h3>
     <div class="timeline">
-      <div class="timeline-item"><strong>B.E. CSE</strong> – MVSR Engineering College (2021 - 2025)</div>
-      <div class="timeline-item"><strong>Intermediate</strong> – Narayana Junior College (2019 - 2021)</div>
-      <div class="timeline-item"><strong>SSC</strong> – Little Flower High School (2018 - 2019)</div>
+      <div class="timeline-item">
+        <h4>B.E CSE – MVSR College</h4>
+        <p>2021 – 2025 | CGPA: 9.61</p>
+      </div>
+      <div class="timeline-item">
+        <h4>Intermediate – Narayana College</h4>
+        <p>2019 – 2021 | 98.2%</p>
+      </div>
+      <div class="timeline-item">
+        <h4>SSC – Little Flower High School</h4>
+        <p>2018 – 2019 | CGPA: 9.8</p>
+      </div>
     </div>
   </section>
 
-  <section class="section" id="location">
-    <h3>Location</h3>
-    <iframe src="https://www.google.com/maps?q=Hyderabad&output=embed"></iframe>
+  <section class="section" id="contact">
+    <h3>Contact</h3>
+    <div class="card">
+      <p>Email: <a href="mailto:akshathakompally@gmail.com">akshathakompally@gmail.com</a></p>
+      <p>Phone: +91 9701536579</p>
+      <p>Location: Hyderabad, Telangana</p>
+      <iframe src="https://www.google.com/maps?q=Hyderabad,+India&output=embed"></iframe>
+    </div>
   </section>
 
   <footer>
     <p>&copy; 2025 Akshatha Kompally. All rights reserved.</p>
   </footer>
 
-  <script>
-    AOS.init();
-
-    // Cursor trail
-    document.addEventListener("mousemove", (e) => {
-      const dot = document.createElement("div");
-      dot.className = "trail-dot";
-      dot.style.left = e.pageX + "px";
-      dot.style.top = e.pageY + "px";
-      document.body.appendChild(dot);
-      setTimeout(() => dot.remove(), 600);
-    });
-
-    // Typing text animation
-    const typedText = document.getElementById('typed-text');
-    const words = ["Aspiring AI Engineer", "Full Stack Developer", "Tech Explorer"];
-    let wordIndex = 0;
-    let charIndex = 0;
-    let isDeleting = false;
-
-    function typeEffect() {
-      let current = words[wordIndex];
-      if (isDeleting) {
-        charIndex--;
-        typedText.textContent = current.substring(0, charIndex);
-      } else {
-        charIndex++;
-        typedText.textContent = current.substring(0, charIndex);
-      }
-
-      if (!isDeleting && charIndex === current.length) {
-        isDeleting = true;
-        setTimeout(typeEffect, 1500);
-      } else if (isDeleting && charIndex === 0) {
-        isDeleting = false;
-        wordIndex = (wordIndex + 1) % words.length;
-        setTimeout(typeEffect, 400);
-      } else {
-        setTimeout(typeEffect, isDeleting ? 50 : 100);
-      }
-    }
-
-    typeEffect();
-
-    // Theme Toggle
-    function toggleTheme() {
-      document.body.classList.toggle('dark');
-      if (document.body.classList.contains('dark')) {
-        document.body.style.background = "#0e0e0e";
-      } else {
-        document.body.style.background = "linear-gradient(to right, #0f0c29, #302b63, #24243e)";
-      }
-    }
-
-    // Animate skill bars on scroll
-    const bars = document.querySelectorAll('.progress-bar-inner');
-    window.addEventListener('scroll', () => {
-      const trigger = window.innerHeight;
-      bars.forEach(bar => {
-        const rect = bar.getBoundingClientRect().top;
-        if (rect < trigger) bar.style.width = bar.style.width;
-      });
-    });
-  </script>
-
+  <script>AOS.init();</script>
 </body>
 </html>
