@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Akshatha Kompally | Portfolio</title>
 
-  <!-- Fonts & Icons -->
+  <!-- Fonts and Icons -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&family=Righteous&display=swap" rel="stylesheet"/>
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet"/>
   <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet"/>
@@ -19,25 +19,20 @@
       --text-color: #ffffff;
     }
 
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: 'Poppins', sans-serif;
-      scroll-behavior: smooth;
-    }
-
     body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
       background: linear-gradient(to right, #0f0c29, #302b63, #24243e);
       color: var(--text-color);
+      overflow-x: hidden;
     }
 
     header {
-      background: rgba(0, 0, 0, 0.85);
-      padding: 1rem 2rem;
       position: fixed;
       width: 100%;
       top: 0;
+      background: rgba(0, 0, 0, 0.8);
+      padding: 1rem 2rem;
       z-index: 999;
       display: flex;
       justify-content: space-between;
@@ -51,10 +46,11 @@
     }
 
     nav a {
-      color: var(--text-color);
+      color: white;
       margin-left: 1.5rem;
       text-decoration: none;
       font-weight: 500;
+      transition: color 0.3s;
     }
 
     nav a:hover {
@@ -63,132 +59,113 @@
 
     .hero {
       min-height: 100vh;
-      padding-top: 100px;
-      text-align: center;
-      background: radial-gradient(circle, #1f1c2c, #0f0c29);
       display: flex;
       flex-direction: column;
-      align-items: center;
       justify-content: center;
-    }
-
-    .hero h2 {
-      font-size: 3.5rem;
-      font-family: 'Righteous', cursive;
-      color: #fff;
+      align-items: center;
+      text-align: center;
+      background: radial-gradient(circle at center, #1f1c2c, #0f0c29);
+      position: relative;
     }
 
     .hero img {
-      width: 200px;
-      height: 200px;
+      width: 180px;
+      height: 180px;
       border-radius: 50%;
-      object-fit: cover;
       border: 4px solid var(--accent-color);
-      box-shadow: 0 4px 25px rgba(0, 0, 0, 0.5);
-      margin: 1rem 0;
+      box-shadow: 0 0 30px rgba(0, 192, 255, 0.3);
     }
 
-    #animated-text {
-      font-size: 1.6rem;
+    .hero h2 {
+      font-size: 3rem;
+      margin-top: 1rem;
+    }
+
+    .hero #typed-text {
+      font-size: 1.5rem;
+      color: var(--accent-color);
       margin-top: 0.5rem;
       height: 30px;
-      color: var(--accent-color);
     }
 
     .socials {
-      margin-top: 1.5rem;
+      margin-top: 1rem;
     }
 
     .socials a {
-      margin: 0 12px;
-      font-size: 1.8rem;
+      margin: 0 10px;
       color: var(--accent-color);
+      font-size: 1.5rem;
       transition: transform 0.3s ease;
     }
 
     .socials a:hover {
-      transform: scale(1.3);
-      color: #fff;
+      transform: scale(1.2);
+      color: white;
     }
 
-    .parallax-section {
-      position: relative;
-      padding: 6rem 2rem;
-      background: linear-gradient(135deg, #1f1c2c, #928dab);
-      overflow: hidden;
-    }
-
-    .section-content {
-      position: relative;
+    .section {
+      padding: 5rem 2rem;
       max-width: 1000px;
       margin: auto;
-      z-index: 2;
     }
 
     h3 {
-      font-size: 2.4rem;
+      font-size: 2rem;
       text-align: center;
-      font-family: 'Righteous', cursive;
+      margin-bottom: 2rem;
       color: var(--accent-color);
+    }
+
+    .skills-list li {
+      margin-bottom: 10px;
+    }
+
+    .progress-container {
       margin-bottom: 1rem;
     }
 
-    h3::after {
-      content: '';
-      display: block;
-      width: 60px;
-      height: 4px;
+    .progress-bar {
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 8px;
+      overflow: hidden;
+    }
+
+    .progress-bar-inner {
+      height: 14px;
       background: var(--accent-color);
-      margin: 0.5rem auto 2rem;
-      border-radius: 2px;
-    }
-
-    .floating-card {
-      background: rgba(255, 255, 255, 0.08);
-      border-radius: 20px;
-      padding: 2rem;
-      margin: 2rem 0;
-      box-shadow: 0 10px 30px rgba(0, 192, 255, 0.15);
-      backdrop-filter: blur(6px);
-      transition: transform 0.4s ease;
-    }
-
-    .floating-card:hover {
-      transform: translateY(-10px);
-    }
-
-    .badge {
-      display: inline-block;
-      background-color: rgba(0, 192, 255, 0.2);
-      border: 1px solid var(--accent-color);
-      color: var(--accent-color);
-      padding: 4px 10px;
-      margin: 3px;
-      border-radius: 12px;
-      font-size: 0.85rem;
-      font-weight: 500;
+      width: 0;
+      transition: width 2s ease;
     }
 
     .timeline {
-      border-left: 4px solid var(--accent-color);
+      position: relative;
+      margin: 2rem 0;
       padding-left: 20px;
-      margin-top: 2rem;
+      border-left: 3px solid var(--accent-color);
     }
 
     .timeline-item {
       margin-bottom: 2rem;
-      position: relative;
     }
 
     .timeline-item::before {
-      content: '';
+      content: "";
       position: absolute;
-      left: -12px;
-      top: 5px;
-      width: 14px;
-      height: 14px;
+      left: -9px;
       background: var(--accent-color);
       border-radius: 50%;
+      width: 16px;
+      height: 16px;
+      top: 5px;
+    }
+
+    iframe {
+      width: 100%;
+      height: 350px;
+      border-radius: 10px;
+      border: none;
+      margin-top: 1rem;
     }
 
     footer {
@@ -200,23 +177,43 @@
 
     .trail-dot {
       position: absolute;
-      height: 8px;
-      width: 8px;
-      background-color: #00c0ff;
+      width: 6px;
+      height: 6px;
+      background-color: var(--accent-color);
       border-radius: 50%;
       pointer-events: none;
       animation: fadeOut 0.6s forwards;
-      z-index: 9999;
     }
 
     @keyframes fadeOut {
       0% { opacity: 1; transform: scale(1); }
       100% { opacity: 0; transform: scale(0.5); }
     }
+
+    /* Theme toggle */
+    .theme-toggle {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      background: var(--accent-color);
+      border: none;
+      color: black;
+      font-weight: bold;
+      padding: 10px 16px;
+      border-radius: 50%;
+      cursor: pointer;
+      z-index: 1001;
+      transition: 0.3s;
+    }
+
+    .theme-toggle:hover {
+      background: #00a8e0;
+    }
   </style>
 </head>
-
 <body>
+
+  <button class="theme-toggle" onclick="toggleTheme()">🌓</button>
 
   <header>
     <h1>Akshatha</h1>
@@ -225,98 +222,92 @@
       <a href="#projects">Projects</a>
       <a href="#skills">Skills</a>
       <a href="#education">Education</a>
-      <a href="#contact">Contact</a>
+      <a href="#location">Location</a>
     </nav>
   </header>
 
   <section class="hero">
-    <h2>Hello, I'm Akshatha</h2>
-    <img src="akshathaprofile.jpg" alt="Akshatha Kompally" />
-    <p id="animated-text">AI Enthusiast | Full Stack Developer</p>
+    <img src="akshathaprofile.jpg" alt="Akshatha" />
+    <h2>Hi, I'm Akshatha</h2>
+    <div id="typed-text"></div>
     <div class="socials">
       <a href="https://github.com/kakshatha-001" target="_blank"><i class="fab fa-github"></i></a>
-      <a href="https://linkedin.com/in/akshathakompally" target="_blank"><i class="fab fa-linkedin"></i></a>
-      <a href="https://www.hackerrank.com/profile/akshathakompally" target="_blank"><i class="fab fa-hackerrank"></i></a>
+      <a href="https://linkedin.com/in/kompally-akshatha" target="_blank"><i class="fab fa-linkedin"></i></a>
+      <a href="https://hackerrank.com/profile/akshathakompally" target="_blank"><i class="fab fa-hackerrank"></i></a>
       <a href="https://www.geeksforgeeks.org/user/akshathakompally/" target="_blank"><i class="fas fa-code"></i></a>
-      <a href="https://leetcode.com/u/akshathakompally/" target="_blank"><i class="fas fa-lightbulb"></i></a>
+      <a href="https://leetcode.com/u/akshathakompally/" target="_blank"><i class="fas fa-code-branch"></i></a>
     </div>
   </section>
 
-  <section class="parallax-section" id="about">
-    <div class="section-content">
-      <h3>About Me</h3>
-      <div class="floating-card">
-        <p>I am an enthusiastic Computer Science student with a strong foundation in AI, ML, and full-stack development. I enjoy solving real-world problems through creative solutions and cutting-edge technologies.</p>
-      </div>
+  <section class="section" id="about">
+    <h3>About Me</h3>
+    <p>I’m a passionate Computer Science student with a deep interest in Artificial Intelligence and Full Stack Web Development. I love creating smart, scalable, and accessible applications. My current work involves image captioning, secure web development, and AI-powered tools.</p>
+  </section>
+
+  <section class="section" id="projects">
+    <h3>Projects</h3>
+    <ul>
+      <li><strong>ImageIntel (Osmania University)</strong>: AI-powered image captioning tool using ViT + GPT-2 with gTTS for speech. <br><em>Tools:</em> PyTorch, Transformers, Python, gTTS</li>
+      <li><strong>Secure Web App (DRDL)</strong>: Internal secure JSP-based communication platform using Oracle DB and Tomcat. <br><em>Tools:</em> JSP, JavaScript, Oracle DB, Apache</li>
+    </ul>
+  </section>
+
+  <section class="section" id="skills">
+    <h3>Skills</h3>
+    <div class="progress-container">
+      Python (4/5)
+      <div class="progress-bar"><div class="progress-bar-inner" style="width: 80%;"></div></div>
+    </div>
+    <div class="progress-container">
+      C (4/5)
+      <div class="progress-bar"><div class="progress-bar-inner" style="width: 80%;"></div></div>
+    </div>
+    <div class="progress-container">
+      C++ (3/5)
+      <div class="progress-bar"><div class="progress-bar-inner" style="width: 60%;"></div></div>
+    </div>
+    <div class="progress-container">
+      Java (3/5)
+      <div class="progress-bar"><div class="progress-bar-inner" style="width: 60%;"></div></div>
+    </div>
+    <div class="progress-container">
+      React (2/5)
+      <div class="progress-bar"><div class="progress-bar-inner" style="width: 40%;"></div></div>
+    </div>
+    <div class="progress-container">
+      HTML (4/5)
+      <div class="progress-bar"><div class="progress-bar-inner" style="width: 80%;"></div></div>
+    </div>
+    <div class="progress-container">
+      CSS (3/5)
+      <div class="progress-bar"><div class="progress-bar-inner" style="width: 60%;"></div></div>
+    </div>
+    <div class="progress-container">
+      JavaScript (3/5)
+      <div class="progress-bar"><div class="progress-bar-inner" style="width: 60%;"></div></div>
+    </div>
+    <div class="progress-container">
+      PHP (2/5)
+      <div class="progress-bar"><div class="progress-bar-inner" style="width: 40%;"></div></div>
+    </div>
+    <div class="progress-container">
+      JSP (2/5)
+      <div class="progress-bar"><div class="progress-bar-inner" style="width: 40%;"></div></div>
     </div>
   </section>
 
-  <section class="parallax-section" id="projects">
-    <div class="section-content">
-      <h3>Projects</h3>
-      <div class="floating-card">
-        <h4>ImageIntel – Image Captioning System</h4>
-        <p>Developed a vision-language model using ViT and GPT-2 with gTTS speech generation. Achieved 86% accuracy in generating contextual captions.</p>
-        <div>
-          <span class="badge">Python</span>
-          <span class="badge">PyTorch</span>
-          <span class="badge">gTTS</span>
-          <span class="badge">Transformers</span>
-        </div>
-      </div>
-      <div class="floating-card">
-        <h4>DRDL Secure App</h4>
-        <p>Created a JSP-based secure communication system using Oracle DB and server-side scripting for DRDL organization.</p>
-        <div>
-          <span class="badge">JSP</span>
-          <span class="badge">JavaScript</span>
-          <span class="badge">Oracle</span>
-        </div>
-      </div>
+  <section class="section" id="education">
+    <h3>Education Timeline</h3>
+    <div class="timeline">
+      <div class="timeline-item"><strong>B.E. CSE</strong> – MVSR Engineering College (2021 - 2025)</div>
+      <div class="timeline-item"><strong>Intermediate</strong> – Narayana Junior College (2019 - 2021)</div>
+      <div class="timeline-item"><strong>SSC</strong> – Little Flower High School (2018 - 2019)</div>
     </div>
   </section>
 
-  <section class="parallax-section" id="skills">
-    <div class="section-content">
-      <h3>Skills</h3>
-      <div class="floating-card">
-        <ul>
-          <li><strong>Languages:</strong> Python (4/5), C (4/5), C++ (3/5), Java (3/5)</li>
-          <li><strong>Web Development:</strong> HTML (4/5), CSS (3/5), JS (3/5), PHP (2/5), JSP (2/5)</li>
-          <li><strong>Tools & Frameworks:</strong> React (2/5), PyTorch, TensorFlow, Oracle</li>
-        </ul>
-      </div>
-    </div>
-  </section>
-
-  <section class="parallax-section" id="education">
-    <div class="section-content">
-      <h3>Education</h3>
-      <div class="floating-card timeline">
-        <div class="timeline-item">
-          <h4>B.E. CSE – MVSR Engineering College</h4>
-          <p>2021 – 2025</p>
-        </div>
-        <div class="timeline-item">
-          <h4>Intermediate – Narayana Junior College</h4>
-          <p>2019 – 2021</p>
-        </div>
-        <div class="timeline-item">
-          <h4>SSC – Little Flower High School</h4>
-          <p>2018 – 2019</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="parallax-section" id="contact">
-    <div class="section-content">
-      <h3>Contact</h3>
-      <div class="floating-card">
-        <p>Email: <a href="mailto:akshathakompally@gmail.com">akshathakompally@gmail.com</a></p>
-        <p>Phone: +91 9701536579</p>
-      </div>
-    </div>
+  <section class="section" id="location">
+    <h3>Location</h3>
+    <iframe src="https://www.google.com/maps?q=Hyderabad&output=embed"></iframe>
   </section>
 
   <footer>
@@ -326,14 +317,7 @@
   <script>
     AOS.init();
 
-    const roles = ["AI Enthusiast", "Full Stack Developer", "Tech Explorer"];
-    const animatedText = document.getElementById('animated-text');
-    let i = 0;
-    setInterval(() => {
-      animatedText.textContent = roles[i];
-      i = (i + 1) % roles.length;
-    }, 2500);
-
+    // Cursor trail
     document.addEventListener("mousemove", (e) => {
       const dot = document.createElement("div");
       dot.className = "trail-dot";
@@ -341,6 +325,57 @@
       dot.style.top = e.pageY + "px";
       document.body.appendChild(dot);
       setTimeout(() => dot.remove(), 600);
+    });
+
+    // Typing text animation
+    const typedText = document.getElementById('typed-text');
+    const words = ["Aspiring AI Engineer", "Full Stack Developer", "Tech Explorer"];
+    let wordIndex = 0;
+    let charIndex = 0;
+    let isDeleting = false;
+
+    function typeEffect() {
+      let current = words[wordIndex];
+      if (isDeleting) {
+        charIndex--;
+        typedText.textContent = current.substring(0, charIndex);
+      } else {
+        charIndex++;
+        typedText.textContent = current.substring(0, charIndex);
+      }
+
+      if (!isDeleting && charIndex === current.length) {
+        isDeleting = true;
+        setTimeout(typeEffect, 1500);
+      } else if (isDeleting && charIndex === 0) {
+        isDeleting = false;
+        wordIndex = (wordIndex + 1) % words.length;
+        setTimeout(typeEffect, 400);
+      } else {
+        setTimeout(typeEffect, isDeleting ? 50 : 100);
+      }
+    }
+
+    typeEffect();
+
+    // Theme Toggle
+    function toggleTheme() {
+      document.body.classList.toggle('dark');
+      if (document.body.classList.contains('dark')) {
+        document.body.style.background = "#0e0e0e";
+      } else {
+        document.body.style.background = "linear-gradient(to right, #0f0c29, #302b63, #24243e)";
+      }
+    }
+
+    // Animate skill bars on scroll
+    const bars = document.querySelectorAll('.progress-bar-inner');
+    window.addEventListener('scroll', () => {
+      const trigger = window.innerHeight;
+      bars.forEach(bar => {
+        const rect = bar.getBoundingClientRect().top;
+        if (rect < trigger) bar.style.width = bar.style.width;
+      });
     });
   </script>
 
