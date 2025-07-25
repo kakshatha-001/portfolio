@@ -4,8 +4,12 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Akshatha Kompally | Portfolio</title>
+
+  <!-- Fonts and Icons -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet"/>
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet" />
+
   <style>
     :root {
       --primary: #333;
@@ -125,6 +129,12 @@
       border-radius: 12px;
       box-shadow: 0 0 15px rgba(0,0,0,0.06);
       flex: 1 1 250px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 12px 25px rgba(0, 0, 0, 0.1);
     }
 
     .card h4 {
@@ -182,7 +192,7 @@
 </head>
 <body>
 
-<header>
+<header data-aos="fade-down">
   <h1>Akshatha</h1>
   <nav>
     <a href="#skills">Skills</a>
@@ -193,7 +203,7 @@
 </header>
 
 <section class="hero">
-  <div class="hero-text">
+  <div class="hero-text" data-aos="fade-right">
     <h2>Hi, I'm Akshatha</h2>
     <p>
       I am a Computer Science student passionate about Artificial Intelligence and Web Development. With experience in full-stack technologies and deep learning projects, I enjoy building real-world solutions that combine creativity and logic.
@@ -204,27 +214,27 @@
       <a href="https://leetcode.com/u/akshathakompally/"><i class="fas fa-code"></i></a>
     </div>
   </div>
-  <div class="hero-image">
-    <img src="akshathaprofile.jpg" alt="Akshatha Image" />
+  <div class="hero-image" data-aos="zoom-in">
+    <img src="your-image.jpg" alt="Akshatha Image" />
   </div>
 </section>
 
 <section id="skills" class="section">
-  <h3>Skills</h3>
+  <h3 data-aos="fade-up">Skills</h3>
   <div class="skills">
-    <div class="card">
+    <div class="card" data-aos="fade-up">
       <h4>Languages</h4>
       <span class="badge">Python</span><span class="badge">C</span><span class="badge">C++</span><span class="badge">Java</span>
     </div>
-    <div class="card">
+    <div class="card" data-aos="fade-up" data-aos-delay="100">
       <h4>Web</h4>
       <span class="badge">HTML</span><span class="badge">CSS</span><span class="badge">JS</span><span class="badge">PHP</span><span class="badge">JSP</span>
     </div>
-    <div class="card">
+    <div class="card" data-aos="fade-up" data-aos-delay="200">
       <h4>AI Tools</h4>
       <span class="badge">PyTorch</span><span class="badge">TensorFlow</span><span class="badge">Transformers</span>
     </div>
-    <div class="card">
+    <div class="card" data-aos="fade-up" data-aos-delay="300">
       <h4>Databases</h4>
       <span class="badge">SQL</span><span class="badge">Oracle</span><span class="badge">MongoDB</span>
     </div>
@@ -232,16 +242,16 @@
 </section>
 
 <section id="projects" class="section">
-  <h3>Projects</h3>
+  <h3 data-aos="fade-up">Projects</h3>
   <div class="projects">
-    <div class="card">
+    <div class="card" data-aos="zoom-in-up">
       <h4>ImageIntel</h4>
       <p>AI captioning tool using ViT + GPT-2 with speech feedback for the visually impaired.</p>
       <span class="badge">Transformers</span>
       <span class="badge">gTTS</span>
       <span class="badge">Python</span>
     </div>
-    <div class="card">
+    <div class="card" data-aos="zoom-in-up" data-aos-delay="150">
       <h4>Secure Web App</h4>
       <p>Internal JSP web app for DRDL communication secured with Oracle DB and Tomcat.</p>
       <span class="badge">JSP</span><span class="badge">Oracle</span><span class="badge">JavaScript</span>
@@ -250,17 +260,17 @@
 </section>
 
 <section id="education" class="section">
-  <h3>Education</h3>
+  <h3 data-aos="fade-up">Education</h3>
   <div class="timeline">
-    <div class="timeline-item">
+    <div class="timeline-item" data-aos="fade-left">
       <h4>B.E. CSE – MVSR College (2021–2025)</h4>
       <p>CGPA: 9.53</p>
     </div>
-    <div class="timeline-item">
+    <div class="timeline-item" data-aos="fade-left" data-aos-delay="100">
       <h4>Intermediate – Narayana Jr. College (2019–2021)</h4>
       <p>Score: 98.2%</p>
     </div>
-    <div class="timeline-item">
+    <div class="timeline-item" data-aos="fade-left" data-aos-delay="200">
       <h4>SSC – Little Flower School (2018–2019)</h4>
       <p>CGPA: 9.8</p>
     </div>
@@ -268,8 +278,8 @@
 </section>
 
 <section id="contact" class="section">
-  <h3>Contact</h3>
-  <div class="card" style="text-align: center;">
+  <h3 data-aos="fade-up">Contact</h3>
+  <div class="card" style="text-align: center;" data-aos="zoom-in">
     <p>Email: <a href="mailto:akshathakompally@gmail.com" style="color: var(--accent);">akshathakompally@gmail.com</a></p>
     <p>Location: <a href="https://maps.app.goo.gl/M4Q1sA1o586s3xny9" target="_blank" style="color: var(--accent);">Hyderabad, India</a></p>
   </div>
@@ -278,6 +288,15 @@
 <footer>
   <p>&copy; 2025 Akshatha Kompally. All rights reserved.</p>
 </footer>
+
+<!-- AOS Script -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+<script>
+  AOS.init({
+    duration: 1000,
+    once: true,
+  });
+</script>
 
 </body>
 </html>
