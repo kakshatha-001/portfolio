@@ -4,16 +4,18 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Akshatha Kompally | Portfolio</title>
+
+  <!-- Fonts and Icons -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet"/>
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" />
 
   <style>
     :root {
-      --bg: #0d0d1a;
+      --primary: #ffd700;
       --accent: #00c0ff;
-      --highlight: #ffd700;
-      --text: #f1f1f1;
-      --card-bg: rgba(20, 20, 40, 0.9);
+      --bg: #0d0d1a;
+      --text: #ffffff;
+      --card-bg: #141427;
     }
 
     * {
@@ -24,299 +26,340 @@
     }
 
     body {
-      background: var(--bg);
+      background-color: var(--bg);
       color: var(--text);
       overflow-x: hidden;
-      position: relative;
+      background-image: radial-gradient(#1a1a2e 1px, transparent 1px);
+      background-size: 40px 40px;
     }
 
     header {
-      position: fixed;
-      top: 0;
-      width: 100%;
-      background: rgba(0, 0, 0, 0.85);
       padding: 1rem 2rem;
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 10;
+      background-color: rgba(0, 0, 0, 0.9);
       display: flex;
       justify-content: space-between;
       align-items: center;
-      z-index: 1000;
     }
 
     header h1 {
       color: var(--accent);
-      font-size: 1.8rem;
+      font-size: 1.5rem;
     }
 
     nav a {
+      color: var(--text);
       margin-left: 1.5rem;
       text-decoration: none;
-      color: var(--text);
-      transition: 0.3s;
+      font-weight: 500;
     }
 
     nav a:hover {
-      color: var(--accent);
-    }
-
-    section {
-      padding: 6rem 2rem 4rem;
-      max-width: 1000px;
-      margin: auto;
+      color: var(--primary);
     }
 
     .hero {
+      min-height: 100vh;
+      padding-top: 120px;
       display: flex;
-      justify-content: space-between;
+      flex-direction: column;
       align-items: center;
-      min-height: 90vh;
-      padding-top: 5rem;
+      text-align: center;
     }
 
-    .intro {
-      flex: 1;
-    }
-
-    .intro h2 {
+    .hero h2 {
       font-size: 3rem;
-      color: var(--highlight);
+      font-weight: 700;
+      color: var(--primary);
     }
 
-    .typewriter {
-      color: var(--accent);
+    .hero p.role {
       font-size: 1.3rem;
-      border-right: 2px solid var(--accent);
-      white-space: nowrap;
-      overflow: hidden;
-      width: 0;
-      animation: typing 4s steps(30, end) infinite, blink 0.7s step-end infinite;
+      color: var(--accent);
+      margin-top: 0.5rem;
     }
 
-    @keyframes typing {
-      0%, 20% { width: 0 }
-      50%, 100% { width: 24ch }
-    }
-
-    @keyframes blink {
-      50% { border-color: transparent; }
-    }
-
-    .hero img {
-      width: 250px;
-      height: 250px;
-      object-fit: cover;
-      border-radius: 15px;
-      border: 3px solid var(--accent);
+    .socials {
+      margin-top: 1rem;
     }
 
     .socials a {
       margin: 0 10px;
-      font-size: 1.5rem;
       color: var(--accent);
+      font-size: 1.5rem;
       transition: 0.3s;
     }
 
     .socials a:hover {
-      color: #fff;
+      color: var(--primary);
+    }
+
+    .about-box {
+      background-color: var(--card-bg);
+      padding: 1.5rem;
+      border-radius: 12px;
+      margin-top: 2rem;
+      max-width: 600px;
+      box-shadow: 0 0 15px rgba(0, 255, 255, 0.1);
+    }
+
+    .about-box p {
+      font-size: 1rem;
+      line-height: 1.7;
+      color: #dcdcdc;
+    }
+
+    section {
+      padding: 4rem 2rem;
+      max-width: 1100px;
+      margin: auto;
     }
 
     h3 {
-      text-align: center;
       font-size: 2rem;
-      color: var(--highlight);
+      color: var(--primary);
+      text-align: center;
       margin-bottom: 2rem;
     }
 
-    .box-grid {
+    .skills-grid {
       display: flex;
       flex-wrap: wrap;
       gap: 1.5rem;
       justify-content: center;
     }
 
-    .box {
+    .skill-box {
       background: var(--card-bg);
-      padding: 1.5rem;
-      border-radius: 10px;
-      width: 300px;
-      box-shadow: 0 4px 12px rgba(0, 255, 255, 0.1);
-      transition: 0.3s;
+      padding: 1.2rem;
+      border-radius: 12px;
+      width: 230px;
+      box-shadow: 0 0 10px rgba(0,255,255,0.08);
+      transition: 0.4s;
     }
 
-    .box:hover {
-      transform: scale(1.03);
-      box-shadow: 0 10px 25px rgba(0, 255, 255, 0.2);
+    .skill-box:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 30px rgba(0, 255, 255, 0.2);
     }
 
-    .box h4 {
+    .skill-box h4 {
       color: var(--accent);
       margin-bottom: 0.5rem;
     }
 
     .badge {
       display: inline-block;
-      background: rgba(0, 192, 255, 0.1);
+      background-color: rgba(0, 192, 255, 0.15);
       border: 1px solid var(--accent);
+      color: var(--accent);
       padding: 5px 10px;
+      margin: 3px;
       border-radius: 12px;
       font-size: 0.8rem;
-      color: var(--accent);
-      margin: 4px 6px;
+      font-weight: 500;
     }
 
-    .project-box {
+    .projects {
       display: flex;
-      flex-direction: row;
-      align-items: center;
-      gap: 1rem;
-      cursor: pointer;
+      flex-direction: column;
+      gap: 2.5rem;
     }
 
-    .project-box img {
-      width: 100px;
-      height: 80px;
-      object-fit: cover;
-      border-radius: 8px;
+    .project {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 2rem;
+    }
+
+    .project-text {
+      flex: 1;
+    }
+
+    .project-text h4 {
+      color: var(--accent);
+      font-size: 1.2rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .project-text p {
+      font-size: 1rem;
+      color: #ccc;
+      margin-bottom: 0.5rem;
+    }
+
+    .project-img {
+      flex: 1;
+      max-width: 300px;
+    }
+
+    .project-img img {
+      width: 100%;
+      border-radius: 12px;
+      box-shadow: 0 0 20px rgba(255, 255, 255, 0.05);
+    }
+
+    .timeline {
+      border-left: 3px solid var(--accent);
+      padding-left: 1.5rem;
+    }
+
+    .timeline-item {
+      margin-bottom: 1.5rem;
+    }
+
+    .timeline-item h4 {
+      font-size: 1.1rem;
+      color: var(--primary);
+    }
+
+    .timeline-item p {
+      font-size: 0.95rem;
+      color: #ccc;
     }
 
     footer {
       text-align: center;
       padding: 2rem;
+      background: #000;
       color: #888;
     }
 
-    .particles {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      z-index: -1;
-      pointer-events: none;
-      background-image: radial-gradient(#00c0ff33 1px, transparent 1px);
-      background-size: 40px 40px;
-      animation: move 60s linear infinite;
-    }
-
-    @keyframes move {
-      0% { background-position: 0 0; }
-      100% { background-position: 100px 100px; }
-    }
-
     @media (max-width: 768px) {
-      .hero {
-        flex-direction: column;
-        text-align: center;
-      }
-      .hero img {
-        margin-top: 2rem;
-      }
+      .hero h2 { font-size: 2rem; }
+      .hero p.role { font-size: 1rem; }
+      .project { flex-direction: column; }
     }
   </style>
 </head>
 <body>
 
-<div class="particles"></div>
+  <header>
+    <h1>Akshatha</h1>
+    <nav>
+      <a href="#skills">Skills</a>
+      <a href="#projects">Projects</a>
+      <a href="#education">Education</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
 
-<header>
-  <h1>Akshatha</h1>
-  <nav>
-    <a href="#about">About</a>
-    <a href="#skills">Skills</a>
-    <a href="#projects">Projects</a>
-    <a href="#internships">Internships</a>
-    <a href="#education">Education</a>
-    <a href="#contact">Contact</a>
-  </nav>
-</header>
-
-<section class="hero" id="hero">
-  <div class="intro">
+  <section class="hero">
     <h2>Hi, I'm Akshatha</h2>
-    <p class="typewriter">AI Enthusiast | Full Stack Developer</p>
-    <div class="socials" style="margin-top: 1rem;">
-      <a href="https://github.com/kakshatha-001"><i class="fab fa-github"></i></a>
-      <a href="https://linkedin.com/in/kompally-akshatha"><i class="fab fa-linkedin"></i></a>
-      <a href="https://leetcode.com/u/akshathakompally/"><i class="fas fa-code"></i></a>
+    <p class="role">AI Enthusiast | Full Stack Developer</p>
+    <div class="socials">
+      <a href="https://github.com/kakshatha-001" target="_blank"><i class="fab fa-github"></i></a>
+      <a href="https://linkedin.com/in/kompally-akshatha" target="_blank"><i class="fab fa-linkedin"></i></a>
+      <a href="https://leetcode.com/u/akshathakompally/" target="_blank"><i class="fas fa-code"></i></a>
     </div>
-  </div>
-  <img src="akshathaprofile.jpg" alt="Akshatha Kompally" />
-</section>
 
-<section id="about">
-  <h3>About Me</h3>
-  <div class="box-grid">
-    <div class="box">
-      <p>I am a Computer Science student passionate about Artificial Intelligence and Web Development. With experience in full-stack technologies and deep learning projects, I enjoy building real-world solutions that combine creativity and logic.</p>
+    <!-- About Me -->
+    <div class="about-box">
+      <p>
+        I am a Computer Science student passionate about Artificial Intelligence and Web Development.
+        With experience in full-stack technologies and deep learning projects, I enjoy building real-world
+        solutions that combine creativity and logic.
+      </p>
     </div>
-  </div>
-</section>
+  </section>
 
-<section id="skills">
-  <h3>Skills</h3>
-  <div class="box-grid">
-    <div class="box"><h4>Languages</h4><span class="badge">Python</span><span class="badge">C</span><span class="badge">C++</span><span class="badge">Java</span></div>
-    <div class="box"><h4>Web</h4><span class="badge">HTML</span><span class="badge">CSS</span><span class="badge">JavaScript</span><span class="badge">PHP</span><span class="badge">JSP</span></div>
-    <div class="box"><h4>AI Tools</h4><span class="badge">PyTorch</span><span class="badge">TensorFlow</span><span class="badge">Transformers</span></div>
-    <div class="box"><h4>Databases</h4><span class="badge">SQL</span><span class="badge">Oracle</span><span class="badge">MongoDB</span></div>
-  </div>
-</section>
-
-<section id="projects">
-  <h3>Projects</h3>
-  <div class="box-grid">
-    <div class="box project-box" onclick="window.open('project-imageintel.html')">
-      <div>
-        <h4>ImageIntel</h4>
-        <p>AI tool for real-time captioning using ViT + GPT-2 (86% accuracy).</p>
+  <section id="skills">
+    <h3>Skills</h3>
+    <div class="skills-grid">
+      <div class="skill-box">
+        <h4>Languages</h4>
+        <span class="badge">Python</span>
+        <span class="badge">C</span>
+        <span class="badge">C++</span>
+        <span class="badge">Java</span>
       </div>
-      <img src="imageintel.png" alt="ImageIntel" />
-    </div>
-    <div class="box project-box" onclick="window.open('project-webapp.html')">
-      <div>
-        <h4>Secure Web App</h4>
-        <p>Internal JSP-based platform using Oracle and Apache Tomcat.</p>
+      <div class="skill-box">
+        <h4>Web</h4>
+        <span class="badge">HTML</span>
+        <span class="badge">CSS</span>
+        <span class="badge">JavaScript</span>
+        <span class="badge">PHP</span>
+        <span class="badge">JSP</span>
       </div>
-      <img src="securewebapp.jpg" alt="Web App" />
+      <div class="skill-box">
+        <h4>AI Tools</h4>
+        <span class="badge">PyTorch</span>
+        <span class="badge">TensorFlow</span>
+        <span class="badge">Transformers</span>
+      </div>
+      <div class="skill-box">
+        <h4>Databases</h4>
+        <span class="badge">SQL</span>
+        <span class="badge">Oracle</span>
+        <span class="badge">MongoDB</span>
+      </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<section id="internships">
-  <h3>Internships</h3>
-  <div class="box-grid">
-    <div class="box">
-      <h4>OU – Deep Learning Intern</h4>
-      <p>Built assistive scene understanding system using ViT + GPT2 + YOLOv8 + gTTS.</p>
+  <section id="projects">
+    <h3>Projects</h3>
+    <div class="projects">
+      <div class="project">
+        <div class="project-text">
+          <h4>ImageIntel – Assistive Captioning Tool</h4>
+          <p>Image captioning system for visually impaired users using ViT + GPT-2. Integrated speech via gTTS.</p>
+          <span class="badge">Python</span>
+          <span class="badge">Transformers</span>
+          <span class="badge">gTTS</span>
+        </div>
+        <div class="project-img">
+          <img src="imageintel.png" alt="Project ImageIntel">
+        </div>
+      </div>
+
+      <div class="project">
+        <div class="project-text">
+          <h4>Secure Internal Web App</h4>
+          <p>Full stack JSP web application developed at DRDL for internal team communication using Oracle DB.</p>
+          <span class="badge">JSP</span>
+          <span class="badge">JavaScript</span>
+          <span class="badge">Oracle</span>
+        </div>
+        <div class="project-img">
+          <img src="securewebapp.jpg" alt="Secure Web App">
+        </div>
+      </div>
     </div>
-    <div class="box">
-      <h4>DRDL – Full Stack Developer</h4>
-      <p>Developed secure JSP-based internal communication system.</p>
+  </section>
+
+  <section id="education">
+    <h3>Education</h3>
+    <div class="timeline">
+      <div class="timeline-item">
+        <h4>B.E. CSE – MVSR Engineering College (2021–2025)</h4>
+        <p>CGPA: 9.53</p>
+      </div>
+      <div class="timeline-item">
+        <h4>Intermediate – Narayana Jr. College (2019–2021)</h4>
+        <p>Score: 98.2%</p>
+      </div>
+      <div class="timeline-item">
+        <h4>SSC – Little Flower School (2018–2019)</h4>
+        <p>CGPA: 9.8</p>
+      </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<section id="education">
-  <h3>Education</h3>
-  <div class="box-grid">
-    <div class="box">B.E. CSE – MVSR (2021–2025) – CGPA: 9.53</div>
-    <div class="box">Intermediate – Narayana Jr. College (2019–2021) – 98.2%</div>
-    <div class="box">SSC – Little Flower School (2018–2019) – CGPA: 9.8</div>
-  </div>
-</section>
-
-<section id="contact">
-  <h3>Contact</h3>
-  <div class="box-grid">
-    <div class="box">
-      <p>Email: <a href="mailto:akshathakompally@gmail.com" style="color:var(--accent)">akshathakompally@gmail.com</a></p>
-      <p>Location: <a href="https://maps.app.goo.gl/M4Q1sA1o586s3xny9" target="_blank" style="color:var(--accent)">View on Google Maps</a></p>
+  <section id="contact">
+    <h3>Contact</h3>
+    <div class="about-box" style="text-align: center;">
+      <p>Email: <a href="mailto:akshathakompally@gmail.com" style="color: var(--accent);">akshathakompally@gmail.com</a></p>
+      <p>Location: <a href="https://maps.app.goo.gl/M4Q1sA1o586s3xny9" target="_blank" style="color: var(--accent);">Hyderabad, India</a></p>
     </div>
-  </div>
-</section>
+  </section>
 
-<footer>
-  <p>&copy; 2025 Akshatha Kompally. All rights reserved.</p>
-</footer>
+  <footer>
+    <p>&copy; 2025 Akshatha Kompally. All rights reserved.</p>
+  </footer>
 
 </body>
 </html>
