@@ -4,111 +4,126 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Akshatha Kompally | Portfolio</title>
-
-  <!-- Fonts and Icons -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet"/>
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" />
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet"/>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
 
   <style>
     :root {
-      --bg-dark: #0e0e10;
-      --accent: #00fff0;
+      --bg: #0d0d1a;
+      --accent: #00c0ff;
       --highlight: #ffd700;
-      --text-light: #e0e0e0;
-      --box-bg: #1a1a1d;
+      --text: #f1f1f1;
+      --card-bg: rgba(20, 20, 40, 0.9);
     }
 
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
-      scroll-behavior: smooth;
       font-family: 'Poppins', sans-serif;
     }
 
     body {
-      background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
-      color: var(--text-light);
+      background: var(--bg);
+      color: var(--text);
+      overflow-x: hidden;
+      position: relative;
     }
 
     header {
-      background: #0c0c0c;
-      padding: 1rem 2rem;
       position: fixed;
+      top: 0;
       width: 100%;
-      z-index: 1000;
+      background: rgba(0, 0, 0, 0.85);
+      padding: 1rem 2rem;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      box-shadow: 0 4px 10px rgba(0, 255, 255, 0.1);
+      z-index: 1000;
     }
 
     header h1 {
-      font-size: 1.8rem;
       color: var(--accent);
+      font-size: 1.8rem;
     }
 
     nav a {
-      color: var(--text-light);
       margin-left: 1.5rem;
       text-decoration: none;
-      font-weight: 500;
-      transition: color 0.3s ease;
+      color: var(--text);
+      transition: 0.3s;
     }
 
     nav a:hover {
       color: var(--accent);
     }
 
+    section {
+      padding: 6rem 2rem 4rem;
+      max-width: 1000px;
+      margin: auto;
+    }
+
     .hero {
       display: flex;
-      flex-wrap: wrap;
+      justify-content: space-between;
       align-items: center;
-      justify-content: center;
-      min-height: 100vh;
-      padding: 100px 2rem 2rem;
+      min-height: 90vh;
+      padding-top: 5rem;
     }
 
-    .hero-text {
+    .intro {
       flex: 1;
-      text-align: left;
-      padding-right: 2rem;
     }
 
-    .hero-text h2 {
+    .intro h2 {
       font-size: 3rem;
       color: var(--highlight);
     }
 
-    .hero-text p {
-      font-size: 1.4rem;
+    .typewriter {
       color: var(--accent);
+      font-size: 1.3rem;
+      border-right: 2px solid var(--accent);
+      white-space: nowrap;
+      overflow: hidden;
+      width: 0;
+      animation: typing 4s steps(30, end) infinite, blink 0.7s step-end infinite;
     }
 
-    .hero-img {
-      flex: 1;
-      text-align: center;
+    @keyframes typing {
+      0%, 20% { width: 0 }
+      50%, 100% { width: 24ch }
     }
 
-    .hero-img img {
+    @keyframes blink {
+      50% { border-color: transparent; }
+    }
+
+    .hero img {
       width: 250px;
-      border-radius: 50%;
-      border: 4px solid var(--accent);
-      box-shadow: 0 0 20px var(--accent);
+      height: 250px;
+      object-fit: cover;
+      border-radius: 15px;
+      border: 3px solid var(--accent);
     }
 
-    section {
-      padding: 4rem 2rem;
-      max-width: 1100px;
-      margin: auto;
+    .socials a {
+      margin: 0 10px;
+      font-size: 1.5rem;
+      color: var(--accent);
+      transition: 0.3s;
+    }
+
+    .socials a:hover {
+      color: #fff;
     }
 
     h3 {
-      font-size: 2rem;
-      margin-bottom: 2rem;
-      color: var(--highlight);
       text-align: center;
+      font-size: 2rem;
+      color: var(--highlight);
+      margin-bottom: 2rem;
     }
 
     .box-grid {
@@ -119,76 +134,72 @@
     }
 
     .box {
-      background: var(--box-bg);
+      background: var(--card-bg);
       padding: 1.5rem;
-      border-radius: 12px;
-      width: 250px;
-      box-shadow: 0 0 10px rgba(0,255,255,0.1);
-      transition: 0.3s ease-in-out;
+      border-radius: 10px;
+      width: 280px;
+      box-shadow: 0 4px 12px rgba(0, 255, 255, 0.1);
+      transition: 0.3s;
     }
 
     .box:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 0 20px rgba(0,255,255,0.2);
+      transform: scale(1.03);
+      box-shadow: 0 10px 25px rgba(0, 255, 255, 0.2);
     }
 
     .box h4 {
       color: var(--accent);
-      margin-bottom: 1rem;
+      margin-bottom: 0.5rem;
     }
 
     .badge {
       display: inline-block;
-      background: #00c0ff30;
+      background: rgba(0, 192, 255, 0.1);
       border: 1px solid var(--accent);
-      color: var(--accent);
       padding: 5px 10px;
-      margin: 4px;
-      border-radius: 10px;
-      font-size: 0.85rem;
+      border-radius: 12px;
+      font-size: 0.8rem;
+      color: var(--accent);
+      margin: 4px 6px;
     }
 
-    .project-row {
+    .project-box {
       display: flex;
-      flex-wrap: wrap;
+      flex-direction: row;
       align-items: center;
-      gap: 2rem;
-      margin-bottom: 3rem;
+      gap: 1rem;
+      cursor: pointer;
     }
 
-    .project-description {
-      flex: 1;
-    }
-
-    .project-description h4 {
-      font-size: 1.5rem;
-      color: var(--highlight);
-    }
-
-    .project-image {
-      flex: 1;
-      text-align: center;
-    }
-
-    .project-image img {
-      width: 100%;
-      max-width: 300px;
-      border-radius: 10px;
-      box-shadow: 0 0 20px rgba(0,255,255,0.2);
-    }
-
-    .contact-box {
-      text-align: center;
-      background: var(--box-bg);
-      padding: 2rem;
-      border-radius: 10px;
+    .project-box img {
+      width: 100px;
+      height: 80px;
+      object-fit: cover;
+      border-radius: 8px;
     }
 
     footer {
       text-align: center;
       padding: 2rem;
-      background: #000;
-      color: #999;
+      color: #888;
+    }
+
+    .particles {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      pointer-events: none;
+      background-image: radial-gradient(#00c0ff33 1px, transparent 1px);
+      background-size: 40px 40px;
+      animation: move 60s linear infinite;
+    }
+
+    @keyframes move {
+      0% { background-position: 0 0; }
+      100% { background-position: 100px 100px; }
     }
 
     @media (max-width: 768px) {
@@ -196,117 +207,116 @@
         flex-direction: column;
         text-align: center;
       }
-
-      .hero-text {
-        padding: 0;
-      }
-
-      .project-row {
-        flex-direction: column;
+      .hero img {
+        margin-top: 2rem;
       }
     }
   </style>
 </head>
 <body>
 
-  <header>
-    <h1>Akshatha</h1>
-    <nav>
-      <a href="#about">About</a>
-      <a href="#skills">Skills</a>
-      <a href="#projects">Projects</a>
-      <a href="#contact">Contact</a>
-    </nav>
-  </header>
+<div class="particles"></div>
 
-  <section class="hero">
-    <div class="hero-text" data-aos="fade-right">
-      <h2>Hi, I'm Akshatha</h2>
-      <p>Aspiring AI Engineer | Full Stack Developer</p>
+<header>
+  <h1>Akshatha</h1>
+  <nav>
+    <a href="#about">About</a>
+    <a href="#skills">Skills</a>
+    <a href="#projects">Projects</a>
+    <a href="#internships">Internships</a>
+    <a href="#education">Education</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</header>
+
+<section class="hero" id="hero">
+  <div class="intro">
+    <h2>Hi, I'm Akshatha</h2>
+    <p class="typewriter">AI Enthusiast | Full Stack Developer</p>
+    <div class="socials" style="margin-top: 1rem;">
+      <a href="https://github.com/kakshatha-001"><i class="fab fa-github"></i></a>
+      <a href="https://linkedin.com/in/kompally-akshatha"><i class="fab fa-linkedin"></i></a>
+      <a href="https://leetcode.com/u/akshathakompally/"><i class="fas fa-code"></i></a>
     </div>
-    <div class="hero-img" data-aos="fade-left">
-      <img src="akshathaprofile.jpg" alt="Akshatha Image" />
+  </div>
+  <img src="myprofile.jpg" alt="Akshatha Kompally" />
+</section>
+
+<section id="about">
+  <h3>About Me</h3>
+  <div class="box-grid">
+    <div class="box">
+      <p>I am a Computer Science student passionate about Artificial Intelligence and Web Development. With experience in full-stack technologies and deep learning projects, I enjoy building real-world solutions that combine creativity and logic.</p>
     </div>
-  </section>
+  </div>
+</section>
 
-  <section id="about">
-    <h3>About Me</h3>
-    <p align="center">I am a Computer Science student passionate about Artificial Intelligence and Web Development. With experience in full-stack technologies and deep learning projects, I enjoy building real-world solutions that combine creativity and logic.</p>
-  </section>
+<section id="skills">
+  <h3>Skills</h3>
+  <div class="box-grid">
+    <div class="box"><h4>Languages</h4><span class="badge">Python</span><span class="badge">C</span><span class="badge">C++</span><span class="badge">Java</span></div>
+    <div class="box"><h4>Web</h4><span class="badge">HTML</span><span class="badge">CSS</span><span class="badge">JavaScript</span><span class="badge">PHP</span><span class="badge">JSP</span></div>
+    <div class="box"><h4>AI Tools</h4><span class="badge">PyTorch</span><span class="badge">TensorFlow</span><span class="badge">Transformers</span></div>
+    <div class="box"><h4>Databases</h4><span class="badge">SQL</span><span class="badge">Oracle</span><span class="badge">MongoDB</span></div>
+  </div>
+</section>
 
-  <section id="skills">
-    <h3>Skills</h3>
-    <div class="box-grid">
-      <div class="box" data-aos="fade-right">
-        <h4>Languages</h4>
-        <span class="badge">Python</span>
-        <span class="badge">C</span>
-        <span class="badge">C++</span>
-        <span class="badge">Java</span>
+<section id="projects">
+  <h3>Projects</h3>
+  <div class="box-grid">
+    <div class="box project-box" onclick="window.open('project-imageintel.html')">
+      <div>
+        <h4>ImageIntel</h4>
+        <p>AI tool for real-time captioning using ViT + GPT-2 (86% accuracy).</p>
       </div>
-      <div class="box" data-aos="fade-left">
-        <h4>Web</h4>
-        <span class="badge">HTML</span>
-        <span class="badge">CSS</span>
-        <span class="badge">JavaScript</span>
-        <span class="badge">PHP</span>
-        <span class="badge">JSP</span>
-      </div>
-      <div class="box" data-aos="fade-right">
-        <h4>AI Tools</h4>
-        <span class="badge">PyTorch</span>
-        <span class="badge">TensorFlow</span>
-        <span class="badge">Transformers</span>
-      </div>
-      <div class="box" data-aos="fade-left">
-        <h4>Databases</h4>
-        <span class="badge">SQL</span>
-        <span class="badge">Oracle</span>
-        <span class="badge">MongoDB</span>
-      </div>
+      <img src="imageintel.png" alt="ImageIntel" />
     </div>
-  </section>
-
-  <section id="projects">
-    <h3>Projects</h3>
-    <div class="project-row" data-aos="fade-up">
-      <div class="project-description">
-        <h4>ImageIntel (Osmania University)</h4>
-        <p>AI tool using ViT + GPT-2 for image captioning with real-time speech feedback (86% accuracy).</p>
+    <div class="box project-box" onclick="window.open('project-webapp.html')">
+      <div>
+        <h4>Secure Web App</h4>
+        <p>Internal JSP-based platform using Oracle and Apache Tomcat.</p>
       </div>
-      <div class="project-image">
-        <a href="Scene_Understanding_Caption.pdf" target="_blank">
-          <img src="imageintel.png" alt="ImageIntel Preview" />
-        </a>
-      </div>
+      <img src="securewebapp.jpg" alt="Web App" />
     </div>
+  </div>
+</section>
 
-    <div class="project-row" data-aos="fade-up">
-      <div class="project-description">
-        <h4>Secure Web App (DRDL)</h4>
-        <p>JSP-based secure internal web app for communication using Oracle and JavaScript.</p>
-      </div>
-      <div class="project-image">
-        <img src="securewebapp.jpg" alt="Web App Screenshot" />
-      </div>
+<section id="internships">
+  <h3>Internships</h3>
+  <div class="box-grid">
+    <div class="box">
+      <h4>OU – Deep Learning Intern</h4>
+      <p>Built assistive scene understanding system using ViT + GPT2 + YOLOv8 + gTTS.</p>
     </div>
-  </section>
-
-  <section id="contact">
-    <h3>Contact</h3>
-    <div class="contact-box">
-      <p>Email: <a href="mailto:akshathakompally@gmail.com" style="color: var(--accent);">akshathakompally@gmail.com</a></p>
-      <p>Location: <a href="https://maps.app.goo.gl/M4Q1sA1o586s3xny9" target="_blank" style="color: var(--accent);">Hyderabad, India</a></p>
+    <div class="box">
+      <h4>DRDL – Full Stack Developer</h4>
+      <p>Developed secure JSP-based internal communication system.</p>
     </div>
-  </section>
+  </div>
+</section>
 
-  <footer>
-    <p>&copy; 2025 Akshatha Kompally. All rights reserved.</p>
-  </footer>
+<section id="education">
+  <h3>Education</h3>
+  <div class="box-grid">
+    <div class="box">B.E. CSE – MVSR (2021–2025) – CGPA: 9.53</div>
+    <div class="box">Intermediate – Narayana Jr. College (2019–2021) – 98.2%</div>
+    <div class="box">SSC – Little Flower School (2018–2019) – CGPA: 9.8</div>
+  </div>
+</section>
 
-  <!-- Scroll Animation -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
-  <script>AOS.init({ duration: 1000 });</script>
+<section id="contact">
+  <h3>Contact</h3>
+  <div class="box-grid">
+    <div class="box">
+      <p>Email: <a href="mailto:akshathakompally@gmail.com" style="color:var(--accent)">akshathakompally@gmail.com</a></p>
+      <p>Location: <a href="https://maps.app.goo.gl/M4Q1sA1o586s3xny9" target="_blank" style="color:var(--accent)">View on Google Maps</a></p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>&copy; 2025 Akshatha Kompally. All rights reserved.</p>
+</footer>
 
 </body>
 </html>
