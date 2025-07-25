@@ -8,16 +8,12 @@
   <!-- Fonts and Icons -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&family=Righteous&display=swap" rel="stylesheet"/>
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet"/>
-
-  <!-- GSAP CDN -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet"/>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
 
   <style>
     :root {
-      --main-color: #4e44ce;
       --accent-color: #00c0ff;
-      --bg-color: #0f0c29;
       --text-color: #ffffff;
     }
 
@@ -30,30 +26,17 @@
     }
 
     body {
-      background: linear-gradient(to right, #0f0c29, #302b63, #24243e);
+      background: linear-gradient(-45deg, #0f0c29, #302b63, #24243e, #4e44ce);
+      background-size: 400% 400%;
+      animation: gradientBG 15s ease infinite;
       color: var(--text-color);
       overflow-x: hidden;
-      position: relative;
     }
 
-    /* Animated Background Circles */
-    body::before {
-      content: "";
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 200%;
-      height: 200%;
-      background: radial-gradient(circle at 20% 20%, #00c0ff30, transparent),
-                  radial-gradient(circle at 80% 60%, #4e44ce25, transparent);
-      animation: floatBG 20s infinite linear;
-      z-index: -1;
-    }
-
-    @keyframes floatBG {
-      0% { transform: translate(0, 0); }
-      50% { transform: translate(-10%, -10%); }
-      100% { transform: translate(0, 0); }
+    @keyframes gradientBG {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
     }
 
     header {
@@ -62,7 +45,7 @@
       position: fixed;
       width: 100%;
       top: 0;
-      z-index: 999;
+      z-index: 1000;
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -76,7 +59,7 @@
 
     nav a {
       color: var(--text-color);
-      margin-left: 1.5rem;
+      margin-left: 1.2rem;
       text-decoration: none;
       font-weight: 500;
       transition: color 0.3s ease;
@@ -106,15 +89,16 @@
       width: 200px;
       height: 200px;
       border-radius: 50%;
-      object-fit: cover;
       border: 4px solid var(--accent-color);
       margin: 1rem 0;
       box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+      object-fit: cover;
     }
 
     #animated-text {
-      font-size: 1.5rem;
+      font-size: 1.4rem;
       margin-top: 0.5rem;
+      font-style: italic;
     }
 
     .socials {
@@ -123,7 +107,7 @@
 
     .socials a {
       margin: 0 10px;
-      font-size: 1.8rem;
+      font-size: 1.6rem;
       color: var(--accent-color);
       transition: 0.3s ease;
     }
@@ -142,7 +126,6 @@
       font-weight: bold;
       border-radius: 6px;
       text-decoration: none;
-      display: inline-block;
       transition: 0.3s ease;
     }
 
@@ -158,35 +141,34 @@
     }
 
     h3 {
+      font-size: 2.4rem;
       text-align: center;
-      font-size: 2.2rem;
       color: var(--accent-color);
-      margin-bottom: 1.5rem;
+      margin-bottom: 2rem;
       font-family: 'Righteous', cursive;
     }
 
-    .card {
-      background: rgba(255, 255, 255, 0.08);
-      padding: 2rem;
-      margin-bottom: 2rem;
-      border-radius: 12px;
-      box-shadow: 0 8px 20px rgba(0, 192, 255, 0.15);
-      backdrop-filter: blur(5px);
-      transition: 0.4s ease;
-      opacity: 0;
-      transform: translateY(50px);
+    .project, .internship {
+      margin-bottom: 3rem;
     }
 
-    .card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 12px 24px rgba(0, 192, 255, 0.25);
+    .project h4, .internship h4 {
+      font-size: 1.6rem;
+      color: #fff;
+      margin-bottom: 0.5rem;
     }
 
-    iframe {
-      width: 100%;
-      height: 400px;
-      border: 0;
-      border-radius: 10px;
+    .project p, .internship p {
+      font-size: 1rem;
+      line-height: 1.6;
+      color: #e0e0e0;
+    }
+
+    ul.skills-used {
+      margin-top: 0.5rem;
+      padding-left: 1.2rem;
+      list-style-type: circle;
+      color: #cceeff;
     }
 
     form {
@@ -209,10 +191,6 @@
       color: white;
     }
 
-    form textarea {
-      resize: vertical;
-    }
-
     form button {
       margin-top: 1.5rem;
       padding: 12px;
@@ -222,11 +200,6 @@
       font-weight: bold;
       border-radius: 6px;
       cursor: pointer;
-      transition: 0.3s ease;
-    }
-
-    form button:hover {
-      background-color: #00a8e0;
     }
 
     footer {
@@ -235,15 +208,8 @@
       background: #000;
       color: #aaa;
     }
-
-    @media (max-width: 768px) {
-      .hero h2 {
-        font-size: 2.2rem;
-      }
-    }
   </style>
 </head>
-
 <body>
 
   <header>
@@ -251,105 +217,87 @@
     <nav>
       <a href="#about">About</a>
       <a href="#projects">Projects</a>
-      <a href="#skills">Skills</a>
-      <a href="#education">Education</a>
-      <a href="#location">Location</a>
       <a href="#contact">Contact</a>
     </nav>
   </header>
 
-  <section class="hero">
+  <section class="hero" data-aos="fade-in">
     <h2>Hi, I'm Akshatha</h2>
     <img src="akshathaprofile.jpg" alt="Akshatha Kompally" />
     <p id="animated-text">Aspiring AI Engineer</p>
     <div class="socials">
       <a href="https://github.com/kakshatha-001" target="_blank"><i class="fab fa-github"></i></a>
       <a href="https://linkedin.com/in/kompally-akshatha" target="_blank"><i class="fab fa-linkedin"></i></a>
-      <a href="https://hackerrank.com/profile/akshathakompally" target="_blank"><i class="fab fa-hackerrank"></i></a>
     </div>
     <a class="resume-btn" href="AkshathaResumeFinal.pdf" download>Download Resume</a>
   </section>
 
-  <section id="about">
+  <section id="about" data-aos="fade-up">
     <h3>About Me</h3>
-    <div class="card">I’m a Computer Science student passionate about AI and full stack development.</div>
+    <p>
+      I'm a final-year Computer Science student passionate about Artificial Intelligence and Web Development.
+      I specialize in building intelligent systems that combine deep learning and modern UI/UX techniques.
+      I believe in continuous learning and developing scalable solutions that have a real-world impact.
+    </p>
   </section>
 
-  <section id="projects">
-    <h3>Projects</h3>
-    <div class="card">ImageIntel (ViT + GPT-2): Smart captioning + speech output</div>
-    <div class="card">DRDL Web App: Secure JSP-based internal system</div>
-  </section>
+  <section id="projects" data-aos="fade-up">
+    <h3>Projects & Internships</h3>
 
-  <section id="skills">
-    <h3>Skills</h3>
-    <div class="card">
-      <ul>
-        <li><strong>Languages:</strong> Python, C++, Java</li>
-        <li><strong>Web:</strong> HTML, CSS, JS, PHP</li>
-        <li><strong>AI:</strong> PyTorch, TensorFlow</li>
+    <div class="project">
+      <h4>🧠 ImageIntel (Research Project @ Osmania University)</h4>
+      <p>
+        Designed a deep learning-based image captioning model using Vision Transformer (ViT) and GPT-2. 
+        Implemented a real-time speech layer using Text-to-Speech for visually impaired accessibility.
+      </p>
+      <ul class="skills-used">
+        <li>Python, PyTorch, HuggingFace Transformers</li>
+        <li>Flask, OpenCV, Google TTS</li>
+        <li>Model accuracy: 86% BLEU score</li>
       </ul>
     </div>
-  </section>
 
-  <section id="education">
-    <h3>Education</h3>
-    <div class="card">
-      <ul>
-        <li>B.E. CSE – MVSR College (9.61 CGPA)</li>
-        <li>Intermediate – Narayana Jr College (98.2%)</li>
-        <li>SSC – Little Flower (9.8 CGPA)</li>
+    <div class="internship">
+      <h4>🔐 DRDL Internship – Secure Web App Development</h4>
+      <p>
+        Built a classified JSP-based internal communication portal for DRDL using Oracle DB and authentication modules. Ensured data security using encrypted transmission protocols.
+      </p>
+      <ul class="skills-used">
+        <li>Java, JSP, Oracle SQL, Apache Tomcat</li>
+        <li>Role-based access control & audit logging</li>
       </ul>
     </div>
+
   </section>
 
-  <section id="location">
-    <h3>Location</h3>
-    <div class="card">
-      <iframe src="https://www.google.com/maps/embed?..."></iframe>
-    </div>
-  </section>
+  <section id="contact" data-aos="fade-up">
+    <h3>Contact Me</h3>
+    <form action="mailto:akshathakompally@gmail.com" method="POST" enctype="text/plain">
+      <label for="name">Name</label>
+      <input type="text" id="name" name="Name" required>
 
-  <section id="contact">
-    <h3>Contact</h3>
-    <div class="card">
-      <form action="mailto:akshathakompally@gmail.com" method="POST" enctype="text/plain">
-        <label>Name</label>
-        <input type="text" name="Name" required placeholder="Your name" />
-        <label>Email</label>
-        <input type="email" name="Email" required placeholder="Your email" />
-        <label>Message</label>
-        <textarea name="Message" rows="4" required placeholder="Your message"></textarea>
-        <button type="submit">Send</button>
-      </form>
-    </div>
+      <label for="email">Email</label>
+      <input type="email" id="email" name="Email" required>
+
+      <label for="message">Message</label>
+      <textarea id="message" name="Message" rows="5" required></textarea>
+
+      <button type="submit">Send Message</button>
+    </form>
   </section>
 
   <footer>
     <p>&copy; 2025 Akshatha Kompally. All rights reserved.</p>
   </footer>
 
-  <!-- Scroll Animations -->
   <script>
-    gsap.registerPlugin(ScrollTrigger);
-    gsap.utils.toArray(".card").forEach(card => {
-      gsap.to(card, {
-        opacity: 1,
-        y: 0,
-        duration: 1,
-        ease: "power2.out",
-        scrollTrigger: {
-          trigger: card,
-          start: "top 85%",
-        }
-      });
-    });
+    AOS.init();
 
-    // Text animation
+    const animatedText = document.getElementById('animated-text');
     const roles = ["Aspiring AI Engineer", "Full Stack Developer", "ML Enthusiast"];
     let i = 0;
     setInterval(() => {
-      document.getElementById("animated-text").textContent = roles[i];
+      animatedText.textContent = roles[i];
       i = (i + 1) % roles.length;
     }, 3000);
   </script>
