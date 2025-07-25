@@ -221,13 +221,14 @@
       <a href="#projects">Projects</a>
       <a href="#skills">Skills</a>
       <a href="#education">Education</a>
+      <a href="#location">Location</a>
       <a href="#contact">Contact</a>
     </nav>
   </header>
 
   <section class="hero">
     <h2>Hi, I'm Akshatha</h2>
-    <img src="myprofile.jpg" alt="Akshatha Kompally"/>
+    <img src="akshathaprofile.jpg" alt="Akshatha Kompally"/>
     <p id="animated-text">Aspiring AI Engineer</p>
     <div class="socials">
       <a href="https://github.com/kakshatha-001" target="_blank"><i class="fab fa-github"></i></a>
@@ -286,6 +287,21 @@
     </div>
   </section>
 
+  <section class="parallax-section" id="location">
+    <div class="section-content">
+      <h3>My Location</h3>
+      <div class="floating-card">
+        <iframe 
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3806.176690588868!2d78.47668157514207!3d17.44775308342306!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcb9bc6d935982b%3A0xc8e90cf69a5c39ea!2sHyderabad%2C%20Telangana!5e0!3m2!1sen!2sin!4v1721483913123!5m2!1sen!2sin" 
+          allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+        <div style="text-align:center; margin-top:1rem;">
+          <a href="https://maps.app.goo.gl/Y6GpJLUkUoxjAvnh7" target="_blank" style="background: var(--accent-color); color: white; padding: 10px 20px; border-radius: 6px; text-decoration: none;">View on Google Maps</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <section class="parallax-section" id="contact">
     <div class="section-content">
       <h3>Contact</h3>
@@ -300,8 +316,9 @@
     <p>&copy; 2025 Akshatha Kompally. All rights reserved.</p>
   </footer>
 
-  <!-- Cursor trail -->
+  <!-- Scripts -->
   <script>
+    // Cursor trail
     document.addEventListener("mousemove", (e) => {
       const dot = document.createElement("div");
       dot.className = "trail-dot";
@@ -320,7 +337,9 @@
       i = (i + 1) % roles.length;
     }, 3000);
 
+    // AOS Animation
     AOS.init();
   </script>
+
 </body>
 </html>
