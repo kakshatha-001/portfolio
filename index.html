@@ -12,23 +12,21 @@
 
   <style>
     :root {
-      --primary: #1a1a2e;
-      --accent: #00bcd4;
-      --highlight: #ffd700;
-      --bg: #f0f8ff;
+      --primary: #0d1b2a;
+      --accent: #03a9f4;
+      --highlight: #ff9800;
+      --bg: #fdfbff;
       --card-bg: #ffffff;
-      --text: #222;
+      --text: #111;
     }
 
     * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
+      margin: 0; padding: 0; box-sizing: border-box;
       font-family: 'Poppins', sans-serif;
     }
 
     body {
-      background: var(--bg);
+      background: linear-gradient(to bottom right, #fff8e1, #e1f5fe);
       color: var(--text);
       overflow-x: hidden;
       position: relative;
@@ -67,28 +65,10 @@
       flex-wrap: wrap;
       justify-content: center;
       align-items: center;
-      padding: 140px 2rem 3rem;
-      background: linear-gradient(120deg, #e0f7fa 0%, #fff 100%);
+      padding: 140px 2rem 4rem;
       position: relative;
+      background: linear-gradient(135deg, #ff98001a 0%, #03a9f41a 100%);
       overflow: hidden;
-    }
-
-    .hero::before {
-      content: "";
-      position: absolute;
-      width: 300px;
-      height: 300px;
-      background: radial-gradient(circle at 50% 50%, var(--accent), transparent);
-      top: -50px;
-      left: -50px;
-      opacity: 0.2;
-      border-radius: 50%;
-      animation: float 6s ease-in-out infinite;
-    }
-
-    @keyframes float {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(20px); }
     }
 
     .hero-text {
@@ -98,7 +78,7 @@
     }
 
     .hero-text h2 {
-      font-size: 2.8rem;
+      font-size: 3rem;
       color: var(--primary);
     }
 
@@ -126,12 +106,12 @@
     }
 
     .hero-image img:hover {
-      transform: rotate3d(1, 1, 0, 8deg);
+      transform: scale(1.05) rotate(1deg);
     }
 
     .section {
       padding: 4rem 2rem;
-      max-width: 1000px;
+      max-width: 1100px;
       margin: auto;
     }
 
@@ -160,7 +140,7 @@
 
     .card:hover {
       transform: translateY(-8px);
-      box-shadow: 0 12px 25px rgba(0, 188, 212, 0.3);
+      box-shadow: 0 12px 25px rgba(255, 152, 0, 0.25);
     }
 
     .card h4 {
@@ -170,10 +150,10 @@
 
     .badge {
       display: inline-block;
-      background: #e3f2fd;
-      color: var(--accent);
+      background: #fff3e0;
+      color: var(--highlight);
       padding: 6px 12px;
-      margin: 3px;
+      margin: 4px;
       border-radius: 10px;
       font-size: 0.85rem;
     }
@@ -205,19 +185,11 @@
     footer {
       text-align: center;
       padding: 2rem;
-      background: #eceff1;
-      color: #555;
+      background: #fafafa;
+      color: #666;
     }
 
-    /* Responsive */
-    @media(max-width: 768px) {
-      .hero {
-        flex-direction: column;
-        text-align: center;
-      }
-    }
-
-    /* SVG Background Elements */
+    /* Background SVG Graphics */
     .graphic-bg {
       position: absolute;
       top: 0;
@@ -225,34 +197,35 @@
       z-index: 0;
       width: 100%;
       height: 100%;
-      overflow: hidden;
       pointer-events: none;
     }
 
     .graphic-bg svg {
       position: absolute;
-      fill: rgba(0, 188, 212, 0.05);
-      animation: move 20s infinite linear;
+      opacity: 0.05;
+      animation: float 10s infinite linear alternate;
     }
 
-    @keyframes move {
-      from { transform: translateY(0); }
-      to { transform: translateY(-100px); }
+    @keyframes float {
+      0% { transform: translateY(0px); }
+      100% { transform: translateY(-40px); }
+    }
+
+    @media(max-width: 768px) {
+      .hero {
+        flex-direction: column;
+        text-align: center;
+      }
     }
   </style>
 </head>
 <body>
 
+<!-- Graphics -->
 <div class="graphic-bg">
-  <svg width="300" height="300" style="top: 10%; left: 5%;">
-    <circle cx="150" cy="150" r="100" />
-  </svg>
-  <svg width="200" height="200" style="top: 50%; left: 80%;">
-    <rect width="200" height="200" rx="30" />
-  </svg>
-  <svg width="100" height="100" style="top: 80%; left: 20%;">
-    <polygon points="0,100 50,0 100,100" />
-  </svg>
+  <svg width="300" height="300" style="top: 10%; left: 5%; fill: #ff9800;"><circle cx="150" cy="150" r="100"/></svg>
+  <svg width="200" height="200" style="top: 50%; left: 80%; fill: #03a9f4;"><rect width="200" height="200" rx="30"/></svg>
+  <svg width="100" height="100" style="top: 85%; left: 20%; fill: #ff9800;"><polygon points="0,100 50,0 100,100"/></svg>
 </div>
 
 <header data-aos="fade-down">
@@ -269,9 +242,7 @@
   <div class="hero-text" data-aos="fade-right">
     <h2>Hi, I'm Akshatha</h2>
     <p>
-      I am a Computer Science student passionate about Artificial Intelligence and Web Development.
-      With experience in full-stack technologies and deep learning projects, I enjoy building real-world
-      solutions that combine creativity and logic.
+      I am a Computer Science student passionate about Artificial Intelligence and Web Development. With experience in full-stack technologies and deep learning projects, I enjoy building real-world solutions that combine creativity and logic.
     </p>
     <div class="socials">
       <a href="https://github.com/kakshatha-001"><i class="fab fa-github"></i></a>
@@ -289,19 +260,30 @@
   <div class="skills">
     <div class="card" data-aos="fade-up">
       <h4>Languages</h4>
-      <span class="badge">Python</span><span class="badge">C</span><span class="badge">C++</span><span class="badge">Java</span>
+      <span class="badge">Python</span>
+      <span class="badge">C</span>
+      <span class="badge">C++</span>
+      <span class="badge">Java</span>
     </div>
     <div class="card" data-aos="fade-up" data-aos-delay="100">
       <h4>Web</h4>
-      <span class="badge">HTML</span><span class="badge">CSS</span><span class="badge">JS</span><span class="badge">PHP</span><span class="badge">JSP</span>
+      <span class="badge">HTML</span>
+      <span class="badge">CSS</span>
+      <span class="badge">JavaScript</span>
+      <span class="badge">PHP</span>
+      <span class="badge">JSP</span>
     </div>
     <div class="card" data-aos="fade-up" data-aos-delay="200">
       <h4>AI Tools</h4>
-      <span class="badge">PyTorch</span><span class="badge">TensorFlow</span><span class="badge">Transformers</span>
+      <span class="badge">PyTorch</span>
+      <span class="badge">TensorFlow</span>
+      <span class="badge">Transformers</span>
     </div>
     <div class="card" data-aos="fade-up" data-aos-delay="300">
       <h4>Databases</h4>
-      <span class="badge">SQL</span><span class="badge">Oracle</span><span class="badge">MongoDB</span>
+      <span class="badge">SQL</span>
+      <span class="badge">Oracle</span>
+      <span class="badge">MongoDB</span>
     </div>
   </div>
 </section>
@@ -311,13 +293,17 @@
   <div class="projects">
     <div class="card" data-aos="zoom-in-up">
       <h4>ImageIntel</h4>
-      <p>Developed an efficient Automated Scene Understanding, Image Captioning and Speech synthesis system, ImageIntel to assist visually impaired individuals, using pre-trained VisionEncoderDecoder model combining ViT and GPT-2 for image captioning and and enhanced the quality of captions with 86% accuracy</p>
-      <span class="badge">Python</span><span class="badge">Transformers</span><span class="badge">OpenCV</span><span class="badge">YOLOv8</span><span class="badge">gTTS</span><span class="badge">Python</span>
+      <p>AI captioning tool using ViT + GPT-2 with speech feedback for visually impaired users.</p>
+      <span class="badge">Transformers</span>
+      <span class="badge">gTTS</span>
+      <span class="badge">Python</span>
     </div>
     <div class="card" data-aos="zoom-in-up" data-aos-delay="150">
       <h4>Secure Web App</h4>
-      <p>Designed and implemented a robust, interactive web application for internal office communication. The application enhances efficiency and security by providing a responsive platform for seamless and secure data transfer within the organization, allowing real time communication.</p>
-      <span class="badge">Apache Tomcat</span><span class="badge">HTML</span><span class="badge">CSS</span><span class="badge">Eclipse</span><span class="badge">JSP</span><span class="badge">Oracle</span><span class="badge">JavaScript</span>
+      <p>Internal JSP web app for DRDL communication secured with Oracle DB and Tomcat.</p>
+      <span class="badge">JSP</span>
+      <span class="badge">Oracle</span>
+      <span class="badge">JavaScript</span>
     </div>
   </div>
 </section>
@@ -352,11 +338,9 @@
   <p>&copy; 2025 Akshatha Kompally. All rights reserved.</p>
 </footer>
 
-<!-- AOS JS -->
+<!-- AOS -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
-<script>
-  AOS.init({ duration: 1000, once: true });
-</script>
+<script>AOS.init({ duration: 1000, once: true });</script>
 
 </body>
 </html>
