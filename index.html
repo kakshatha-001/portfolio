@@ -7,16 +7,24 @@
 
   <!-- Fonts and Icons -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet"/>
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" />
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet"/>
 
   <style>
     :root {
-      --bg-dark: #0e0e10;
+      --bg: #0e0e10;
+      --text: #f0f0f0;
       --accent: #00bcd4;
       --highlight: #ff9800;
-      --text: #f0f0f0;
       --card-bg: #1a1a1d;
+    }
+
+    body.light {
+      --bg: #ffffff;
+      --text: #121212;
+      --accent: #2196f3;
+      --highlight: #ff5722;
+      --card-bg: #f0f0f0;
     }
 
     * {
@@ -25,126 +33,135 @@
     }
 
     body {
-      background: var(--bg-dark);
+      background: var(--bg);
       color: var(--text);
-      overflow-x: hidden;
-      position: relative;
+      transition: background 0.4s, color 0.4s;
     }
 
     header {
       background: #111;
-      padding: 1.5rem 2rem;
+      padding: 1rem 2rem;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.3);
-      position: fixed;
-      width: 100%;
+      position: sticky;
       top: 0;
-      z-index: 100;
+      z-index: 999;
     }
 
-    header h1 {
-      color: var(--accent);
-    }
+    header h1 { color: var(--accent); }
 
     nav a {
-      margin-left: 1.5rem;
-      text-decoration: none;
       color: var(--text);
-      font-weight: 500;
-      transition: color 0.3s ease;
+      margin-left: 1.2rem;
+      text-decoration: none;
     }
 
-    nav a:hover {
-      color: var(--highlight);
+    nav a:hover { color: var(--highlight); }
+
+    .theme-toggle {
+      position: fixed;
+      top: 1rem;
+      right: 1rem;
+      z-index: 1000;
+    }
+
+    .theme-toggle button {
+      background: var(--accent);
+      color: white;
+      border: none;
+      padding: 8px;
+      border-radius: 50%;
+      cursor: pointer;
     }
 
     .hero {
       display: flex;
       flex-wrap: wrap;
-      justify-content: center;
       align-items: center;
-      padding: 140px 2rem 4rem;
-      background: radial-gradient(circle at 30% 30%, #1a1a1d 0%, #0e0e10 100%);
-      position: relative;
+      justify-content: center;
+      padding: 6rem 2rem 3rem;
+      background: radial-gradient(circle, #1a1a1d 0%, #0e0e10 100%);
     }
 
-    .hero-text {
+    .hero .text {
       flex: 1;
-      padding: 1rem 2rem;
-      z-index: 2;
+      padding: 2rem;
+      min-width: 300px;
     }
 
-    .hero-text h2 {
-      font-size: 3rem;
+    .hero .text h1 {
+      font-size: 2.8rem;
       color: var(--highlight);
     }
 
-    .hero-text p {
+    .hero .text p {
       margin-top: 1rem;
       font-size: 1.1rem;
-      line-height: 1.7;
-      color: #ccc;
     }
 
-    .hero-image {
+    .hero .image {
       flex: 1;
-      padding: 1rem 2rem;
       text-align: center;
-      z-index: 2;
+      padding: 1rem;
     }
 
-    .hero-image img {
-      width: 260px;
-      height: 260px;
+    .hero img {
+      width: 250px;
+      height: 250px;
       object-fit: cover;
-      border-radius: 20px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.6);
-      transition: transform 0.4s ease;
+      border-radius: 16px;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+      transition: transform 0.3s ease;
     }
 
-    .hero-image img:hover {
-      transform: rotate(1deg) scale(1.03);
+    .hero img:hover {
+      transform: scale(1.03) rotate(1deg);
     }
 
-    .section {
-      padding: 4rem 2rem;
+    .btn {
+      display: inline-block;
+      margin-top: 1rem;
+      background: var(--accent);
+      color: #fff;
+      padding: 0.7rem 1.2rem;
+      text-decoration: none;
+      border-radius: 6px;
+    }
+
+    section {
+      padding: 3rem 2rem;
       max-width: 1100px;
       margin: auto;
     }
 
-    h3 {
-      font-size: 2rem;
+    h2 {
+      text-align: center;
       margin-bottom: 2rem;
       color: var(--accent);
-      text-align: center;
     }
 
-    .skills, .projects, .timeline {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 1.5rem;
-      justify-content: center;
-    }
-
-    .card {
+    .card, .project {
       background: var(--card-bg);
-      padding: 1.5rem;
-      border-radius: 12px;
-      box-shadow: 0 0 15px rgba(0,0,0,0.2);
-      flex: 1 1 250px;
-      transition: 0.3s ease;
+      padding: 1.3rem;
+      border-radius: 10px;
+      margin-bottom: 1.5rem;
     }
 
-    .card:hover {
-      transform: translateY(-8px);
-      box-shadow: 0 12px 25px rgba(255, 152, 0, 0.3);
+    .project {
+      cursor: pointer;
+      transition: transform 0.3s ease;
     }
 
-    .card h4 {
-      color: var(--accent);
-      margin-bottom: 0.8rem;
+    .project:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(255, 152, 0, 0.2);
+    }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.5rem;
     }
 
     .badge {
@@ -152,33 +169,50 @@
       background: rgba(0, 188, 212, 0.1);
       color: var(--accent);
       padding: 6px 12px;
-      margin: 4px;
+      margin: 5px 5px 0 0;
       border-radius: 10px;
       font-size: 0.85rem;
     }
 
-    .timeline-item {
-      margin-bottom: 1.5rem;
+    .contact input, .contact textarea {
+      width: 100%;
+      padding: 0.7rem;
+      margin-bottom: 1rem;
+      border-radius: 6px;
+      border: none;
     }
 
-    .timeline-item h4 {
-      color: var(--highlight);
-      margin-bottom: 0.5rem;
+    .contact button {
+      background: var(--highlight);
+      color: white;
+      padding: 0.8rem 1.5rem;
+      border: none;
+      border-radius: 5px;
     }
 
-    .socials {
-      margin-top: 1rem;
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 1000;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0,0,0,0.7);
+      justify-content: center;
+      align-items: center;
     }
 
-    .socials a {
-      margin: 0 10px;
-      font-size: 1.5rem;
-      color: var(--accent);
-      transition: 0.3s ease;
+    .modal-content {
+      background: var(--card-bg);
+      color: var(--text);
+      padding: 2rem;
+      border-radius: 10px;
+      max-width: 500px;
     }
 
-    .socials a:hover {
-      color: var(--highlight);
+    .close {
+      float: right;
+      font-size: 1.4rem;
+      cursor: pointer;
     }
 
     footer {
@@ -187,148 +221,137 @@
       background: #111;
       color: #888;
     }
-
-    /* Background Graphics */
-    .graphic-bg {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      pointer-events: none;
-      z-index: 0;
-    }
-
-    .graphic-bg svg {
-      position: absolute;
-      opacity: 0.04;
-      animation: float 15s linear infinite alternate;
-    }
-
-    @keyframes float {
-      0% { transform: translateY(0); }
-      100% { transform: translateY(-40px); }
-    }
-
-    @media(max-width: 768px) {
-      .hero {
-        flex-direction: column;
-        text-align: center;
-      }
-    }
   </style>
 </head>
 <body>
 
-<!-- Background SVG graphics -->
-<div class="graphic-bg">
-  <svg width="300" height="300" style="top: 20%; left: 5%; fill: #03a9f4;"><circle cx="150" cy="150" r="100"/></svg>
-  <svg width="180" height="180" style="top: 70%; left: 80%; fill: #ff9800;"><rect width="180" height="180" rx="30"/></svg>
+<div class="theme-toggle">
+  <button id="toggleTheme">🌙</button>
 </div>
 
-<header data-aos="fade-down">
+<header>
   <h1>Akshatha</h1>
   <nav>
     <a href="#skills">Skills</a>
     <a href="#projects">Projects</a>
-    <a href="#education">Education</a>
     <a href="#contact">Contact</a>
   </nav>
 </header>
 
 <section class="hero">
-  <div class="hero-text" data-aos="fade-right">
-    <h2>Hi, I'm Akshatha</h2>
-    <p>
-      I am a Computer Science student passionate about Artificial Intelligence and Web Development. With experience in full-stack technologies and deep learning projects, I enjoy building real-world solutions that combine creativity and logic.
-    </p>
-    <div class="socials">
-      <a href="https://github.com/kakshatha-001"><i class="fab fa-github"></i></a>
-      <a href="https://linkedin.com/in/kompally-akshatha"><i class="fab fa-linkedin"></i></a>
-      <a href="https://leetcode.com/u/akshathakompally/"><i class="fas fa-code"></i></a>
-    </div>
+  <div class="text" data-aos="fade-right">
+    <h1>Hello, I'm Akshatha</h1>
+    <p>Computer Science student with a passion for Artificial Intelligence and Web Development. I enjoy building full-stack apps and deep learning models for real-world solutions.</p>
+    <a href="AkshathaResumeFinal.pdf" download class="btn">📄 Download Resume</a>
   </div>
-  <div class="hero-image" data-aos="zoom-in">
+  <div class="image" data-aos="zoom-in">
     <img src="akshathaprofile.jpg" alt="Akshatha" />
   </div>
 </section>
 
-<section id="skills" class="section">
-  <h3 data-aos="fade-up">Skills</h3>
-  <div class="skills">
-    <div class="card" data-aos="fade-up">
-      <h4>Languages</h4>
-      <span class="badge">Python</span><span class="badge">C</span><span class="badge">C++</span><span class="badge">Java</span>
-    </div>
-    <div class="card" data-aos="fade-up" data-aos-delay="100">
-      <h4>Web</h4>
-      <span class="badge">HTML</span><span class="badge">CSS</span><span class="badge">JavaScript</span><span class="badge">PHP</span><span class="badge">JSP</span>
-    </div>
-    <div class="card" data-aos="fade-up" data-aos-delay="200">
-      <h4>AI Tools</h4>
-      <span class="badge">PyTorch</span><span class="badge">TensorFlow</span><span class="badge">Transformers</span>
-    </div>
-    <div class="card" data-aos="fade-up" data-aos-delay="300">
-      <h4>Databases</h4>
-      <span class="badge">SQL</span><span class="badge">Oracle</span><span class="badge">MongoDB</span>
-    </div>
-  </div>
-</section>
-
-<section id="projects" class="section">
-  <h3 data-aos="fade-up">Projects</h3>
-  <div class="projects">
-    <div class="card" data-aos="zoom-in-up">
-      <h4>ImageIntel</h4>
-      <p>AI captioning tool using ViT + GPT-2 with speech feedback for visually impaired users.</p>
-      <span class="badge">Transformers</span>
-      <span class="badge">gTTS</span>
+<section id="skills" data-aos="fade-up">
+  <h2>🛠️ Skills</h2>
+  <div class="skills-grid">
+    <div class="card">
+      <h3>Languages</h3>
       <span class="badge">Python</span>
+      <span class="badge">C</span>
+      <span class="badge">C++</span>
+      <span class="badge">Java</span>
     </div>
-    <div class="card" data-aos="zoom-in-up" data-aos-delay="150">
-      <h4>Secure Web App</h4>
-      <p>Internal JSP web app for DRDL communication secured with Oracle DB and Tomcat.</p>
-      <span class="badge">JSP</span><span class="badge">Oracle</span><span class="badge">JavaScript</span>
+    <div class="card">
+      <h3>Web</h3>
+      <span class="badge">HTML</span>
+      <span class="badge">CSS</span>
+      <span class="badge">JavaScript</span>
+      <span class="badge">PHP</span>
+      <span class="badge">JSP</span>
+    </div>
+    <div class="card">
+      <h3>AI Tools</h3>
+      <span class="badge">PyTorch</span>
+      <span class="badge">TensorFlow</span>
+      <span class="badge">Transformers</span>
+    </div>
+    <div class="card">
+      <h3>Databases</h3>
+      <span class="badge">SQL</span>
+      <span class="badge">Oracle</span>
+      <span class="badge">MongoDB</span>
     </div>
   </div>
 </section>
 
-<section id="education" class="section">
-  <h3 data-aos="fade-up">Education</h3>
-  <div class="timeline">
-    <div class="timeline-item" data-aos="fade-left">
-      <h4>B.E. CSE – MVSR College (2021–2025)</h4>
-      <p>CGPA: 9.53</p>
-    </div>
-    <div class="timeline-item" data-aos="fade-left" data-aos-delay="100">
-      <h4>Intermediate – Narayana Jr. College (2019–2021)</h4>
-      <p>Score: 98.2%</p>
-    </div>
-    <div class="timeline-item" data-aos="fade-left" data-aos-delay="200">
-      <h4>SSC – Little Flower School (2018–2019)</h4>
-      <p>CGPA: 9.8</p>
-    </div>
+<section id="projects" data-aos="fade-up">
+  <h2>💻 Projects</h2>
+  <div class="project" onclick="openModal('modal1')">
+    <h3>ImageIntel</h3>
+    <p>Captioning + Speech app using ViT-GPT2 for the visually impaired.</p>
+  </div>
+  <div class="project" onclick="openModal('modal2')">
+    <h3>Secure Web App</h3>
+    <p>Internal JSP web system using Oracle DB + Tomcat.</p>
   </div>
 </section>
 
-<section id="contact" class="section">
-  <h3 data-aos="fade-up">Contact</h3>
-  <div class="card" style="text-align: center;" data-aos="zoom-in">
-    <p>Email: <a href="mailto:akshathakompally@gmail.com" style="color: var(--accent);">akshathakompally@gmail.com</a></p>
-    <p>Location: <a href="https://maps.app.goo.gl/M4Q1sA1o586s3xny9" target="_blank" style="color: var(--accent);">Hyderabad, India</a></p>
-  </div>
+<section class="contact" id="contact" data-aos="fade-up">
+  <h2>📩 Contact</h2>
+  <form id="contactForm">
+    <input type="text" name="name" placeholder="Your Name" required/>
+    <input type="email" name="email" placeholder="Your Email" required/>
+    <textarea name="message" placeholder="Message" required></textarea>
+    <button type="submit">Send</button>
+    <p id="formStatus"></p>
+  </form>
 </section>
+
+<!-- Project Modals -->
+<div id="modal1" class="modal" onclick="closeModal('modal1')">
+  <div class="modal-content">
+    <span class="close" onclick="closeModal('modal1')">&times;</span>
+    <h3>ImageIntel</h3>
+    <p>Developed an assistive AI tool for the visually impaired. Uses ViT + GPT-2 for generating image captions and Google Text-to-Speech for audio feedback. Achieved 86% quality on MSCOCO captions.</p>
+  </div>
+</div>
+
+<div id="modal2" class="modal" onclick="closeModal('modal2')">
+  <div class="modal-content">
+    <span class="close" onclick="closeModal('modal2')">&times;</span>
+    <h3>Secure Web App</h3>
+    <p>Full-stack JSP application with Oracle DB for encrypted internal messaging. Developed for DRDL office network to enhance secure communications.</p>
+  </div>
+</div>
 
 <footer>
   <p>&copy; 2025 Akshatha Kompally. All rights reserved.</p>
 </footer>
 
-<!-- AOS script -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+<!-- Scripts -->
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 <script>
-  AOS.init({
-    duration: 1000,
-    once: true
+  AOS.init();
+
+  // Light/Dark Mode
+  document.getElementById('toggleTheme').addEventListener('click', () => {
+    document.body.classList.toggle('light');
+    const btn = document.getElementById('toggleTheme');
+    btn.textContent = document.body.classList.contains('light') ? '🌞' : '🌙';
+  });
+
+  // Modal functions
+  function openModal(id) {
+    document.getElementById(id).style.display = 'flex';
+  }
+
+  function closeModal(id) {
+    document.getElementById(id).style.display = 'none';
+  }
+
+  // Contact form
+  document.getElementById('contactForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    document.getElementById('formStatus').textContent = "Thanks! Message received.";
+    this.reset();
   });
 </script>
 
