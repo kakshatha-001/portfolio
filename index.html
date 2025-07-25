@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8"/>
+  <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Akshatha Kompally | Portfolio</title>
 
-  <!-- Fonts and Icons -->
+  <!-- Fonts & Icons -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&family=Righteous&display=swap" rel="stylesheet"/>
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet"/>
   <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet"/>
@@ -19,22 +19,6 @@
       --text-color: #ffffff;
     }
 
-    body.light-theme {
-      background: #f4f4f4;
-      color: #1a1a1a;
-    }
-
-    body.light-theme header,
-    body.light-theme footer {
-      background: #fff;
-      color: #222;
-    }
-
-    body.light-theme nav a,
-    body.light-theme h3 {
-      color: #1a1a1a;
-    }
-
     * {
       margin: 0;
       padding: 0;
@@ -46,30 +30,6 @@
     body {
       background: linear-gradient(to right, #0f0c29, #302b63, #24243e);
       color: var(--text-color);
-      overflow-x: hidden;
-    }
-
-    #preloader {
-      position: fixed;
-      top: 0; left: 0;
-      width: 100vw; height: 100vh;
-      background: #0f0c29;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      z-index: 100000;
-    }
-
-    .loader {
-      color: var(--accent-color);
-      font-size: 1.5rem;
-      font-weight: bold;
-      animation: pulse 1s infinite ease-in-out;
-    }
-
-    @keyframes pulse {
-      0%, 100% { transform: scale(1); opacity: 1 }
-      50% { transform: scale(1.1); opacity: 0.7 }
     }
 
     header {
@@ -85,8 +45,8 @@
     }
 
     header h1 {
-      font-family: 'Righteous', cursive;
       font-size: 1.8rem;
+      font-family: 'Righteous', cursive;
       color: var(--accent-color);
     }
 
@@ -95,137 +55,140 @@
       margin-left: 1.5rem;
       text-decoration: none;
       font-weight: 500;
-      transition: 0.3s ease;
     }
 
     nav a:hover {
       color: var(--accent-color);
     }
 
-    #theme-toggle {
-      position: fixed;
-      bottom: 30px;
-      right: 30px;
-      background: var(--accent-color);
-      color: white;
-      border-radius: 50%;
-      font-size: 1.5rem;
-      padding: 0.6rem 0.75rem;
-      cursor: pointer;
-      z-index: 10000;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.4);
-    }
-
     .hero {
       min-height: 100vh;
+      padding-top: 100px;
+      text-align: center;
+      background: radial-gradient(circle, #1f1c2c, #0f0c29);
       display: flex;
       flex-direction: column;
-      justify-content: center;
       align-items: center;
-      text-align: center;
-      padding-top: 100px;
+      justify-content: center;
     }
 
     .hero h2 {
-      font-size: 3.2rem;
+      font-size: 3.5rem;
       font-family: 'Righteous', cursive;
-    }
-
-    #typed-text {
-      font-size: 1.5rem;
-      display: inline;
-    }
-
-    #typed-cursor {
-      display: inline-block;
-      color: var(--accent-color);
-      font-weight: bold;
-      font-size: 1.5rem;
-      animation: blink 0.7s steps(2, start) infinite;
-    }
-
-    @keyframes blink {
-      0%, 100% { opacity: 1 }
-      50% { opacity: 0 }
-    }
-
-    .resume-btn {
-      margin-top: 20px;
-      padding: 10px 20px;
-      background: var(--accent-color);
       color: #fff;
-      border-radius: 6px;
-      text-decoration: none;
     }
 
-    section {
-      padding: 5rem 2rem;
+    .hero img {
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 4px solid var(--accent-color);
+      box-shadow: 0 4px 25px rgba(0, 0, 0, 0.5);
+      margin: 1rem 0;
+    }
+
+    #animated-text {
+      font-size: 1.6rem;
+      margin-top: 0.5rem;
+      height: 30px;
+      color: var(--accent-color);
+    }
+
+    .socials {
+      margin-top: 1.5rem;
+    }
+
+    .socials a {
+      margin: 0 12px;
+      font-size: 1.8rem;
+      color: var(--accent-color);
+      transition: transform 0.3s ease;
+    }
+
+    .socials a:hover {
+      transform: scale(1.3);
+      color: #fff;
+    }
+
+    .parallax-section {
+      position: relative;
+      padding: 6rem 2rem;
+      background: linear-gradient(135deg, #1f1c2c, #928dab);
+      overflow: hidden;
+    }
+
+    .section-content {
+      position: relative;
       max-width: 1000px;
       margin: auto;
+      z-index: 2;
     }
 
     h3 {
+      font-size: 2.4rem;
       text-align: center;
-      font-size: 2.2rem;
-      color: var(--accent-color);
       font-family: 'Righteous', cursive;
-      margin-bottom: 2rem;
+      color: var(--accent-color);
+      margin-bottom: 1rem;
     }
 
-    .grid-2 {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 2rem;
-    }
-
-    .project, .skill-box, .timeline-event {
-      background: rgba(255,255,255,0.08);
-      padding: 1.5rem;
-      border-radius: 10px;
-      transition: 0.3s ease;
-      backdrop-filter: blur(4px);
-    }
-
-    .project:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 10px 25px rgba(0,192,255,0.3);
-    }
-
-    .timeline-event::before {
-      content: "";
-      position: absolute;
-      width: 2px;
-      height: 100%;
-      background: var(--accent-color);
-      left: 20px;
-      top: 0;
-    }
-
-    .timeline-event {
-      position: relative;
-      padding-left: 3rem;
-      margin-bottom: 2rem;
-    }
-
-    .progress-bar {
-      background: rgba(255,255,255,0.2);
-      height: 10px;
-      border-radius: 6px;
-      overflow: hidden;
-      margin-top: 5px;
-    }
-
-    .progress-bar span {
+    h3::after {
+      content: '';
       display: block;
-      height: 100%;
+      width: 60px;
+      height: 4px;
       background: var(--accent-color);
-      width: 0;
-      animation: fillBar 2s forwards;
+      margin: 0.5rem auto 2rem;
+      border-radius: 2px;
     }
 
-    @keyframes fillBar {
-      from { width: 0 }
-      to { width: 100% }
+    .floating-card {
+      background: rgba(255, 255, 255, 0.08);
+      border-radius: 20px;
+      padding: 2rem;
+      margin: 2rem 0;
+      box-shadow: 0 10px 30px rgba(0, 192, 255, 0.15);
+      backdrop-filter: blur(6px);
+      transition: transform 0.4s ease;
+    }
+
+    .floating-card:hover {
+      transform: translateY(-10px);
+    }
+
+    .badge {
+      display: inline-block;
+      background-color: rgba(0, 192, 255, 0.2);
+      border: 1px solid var(--accent-color);
+      color: var(--accent-color);
+      padding: 4px 10px;
+      margin: 3px;
+      border-radius: 12px;
+      font-size: 0.85rem;
+      font-weight: 500;
+    }
+
+    .timeline {
+      border-left: 4px solid var(--accent-color);
+      padding-left: 20px;
+      margin-top: 2rem;
+    }
+
+    .timeline-item {
+      margin-bottom: 2rem;
+      position: relative;
+    }
+
+    .timeline-item::before {
+      content: '';
+      position: absolute;
+      left: -12px;
+      top: 5px;
+      width: 14px;
+      height: 14px;
+      background: var(--accent-color);
+      border-radius: 50%;
     }
 
     footer {
@@ -235,19 +198,25 @@
       color: #aaa;
     }
 
-    @media (max-width: 768px) {
-      .hero h2 { font-size: 2.2rem }
+    .trail-dot {
+      position: absolute;
+      height: 8px;
+      width: 8px;
+      background-color: #00c0ff;
+      border-radius: 50%;
+      pointer-events: none;
+      animation: fadeOut 0.6s forwards;
+      z-index: 9999;
+    }
+
+    @keyframes fadeOut {
+      0% { opacity: 1; transform: scale(1); }
+      100% { opacity: 0; transform: scale(0.5); }
     }
   </style>
 </head>
 
 <body>
-
-  <!-- Preloader -->
-  <div id="preloader"><div class="loader">Loading...</div></div>
-
-  <!-- Theme toggle -->
-  <div id="theme-toggle" title="Toggle Theme">🌓</div>
 
   <header>
     <h1>Akshatha</h1>
@@ -256,139 +225,122 @@
       <a href="#projects">Projects</a>
       <a href="#skills">Skills</a>
       <a href="#education">Education</a>
-      <a href="#location">Location</a>
       <a href="#contact">Contact</a>
     </nav>
   </header>
 
   <section class="hero">
-    <h2>Hi, I'm Akshatha</h2>
-    <p><span id="typed-text"></span><span id="typed-cursor">|</span></p>
-    <a class="resume-btn" href="AkshathaResumeFinal.pdf" download>Download Resume</a>
+    <h2>Hello, I'm Akshatha</h2>
+    <img src="akshathaprofile.jpg" alt="Akshatha Kompally" />
+    <p id="animated-text">AI Enthusiast | Full Stack Developer</p>
+    <div class="socials">
+      <a href="https://github.com/kakshatha-001" target="_blank"><i class="fab fa-github"></i></a>
+      <a href="https://linkedin.com/in/akshathakompally" target="_blank"><i class="fab fa-linkedin"></i></a>
+      <a href="https://www.hackerrank.com/profile/akshathakompally" target="_blank"><i class="fab fa-hackerrank"></i></a>
+      <a href="https://www.geeksforgeeks.org/user/akshathakompally/" target="_blank"><i class="fas fa-code"></i></a>
+      <a href="https://leetcode.com/u/akshathakompally/" target="_blank"><i class="fas fa-lightbulb"></i></a>
+    </div>
   </section>
 
-  <section id="about" data-aos="fade-up">
-    <h3>About Me</h3>
-    <p style="text-align:center;">I'm a passionate Computer Science student specialized in AI and Full Stack Web Development. I love creating efficient systems and real-world tech solutions using modern tools and frameworks.</p>
-  </section>
-
-  <section id="projects" data-aos="fade-up">
-    <h3>Projects & Internships</h3>
-    <div class="grid-2">
-      <div class="project">
-        <h4>🧠 ImageIntel (Osmania University)</h4>
-        <p>Built an AI-based image captioning tool for the visually impaired using ViT + GPT-2. Integrated Google TTS for real-time accessibility.</p>
-        <p><strong>Tech Stack:</strong> Python, PyTorch, HuggingFace, Flask, Google TTS</p>
-      </div>
-      <div class="project">
-        <h4>🔒 DRDL Secure Web App</h4>
-        <p>Developed a JSP + Oracle web platform with RBAC security for internal DRDL communication.</p>
-        <p><strong>Tech Stack:</strong> JSP, Oracle, HTML, JS</p>
+  <section class="parallax-section" id="about">
+    <div class="section-content">
+      <h3>About Me</h3>
+      <div class="floating-card">
+        <p>I am an enthusiastic Computer Science student with a strong foundation in AI, ML, and full-stack development. I enjoy solving real-world problems through creative solutions and cutting-edge technologies.</p>
       </div>
     </div>
   </section>
 
-  <section id="skills" data-aos="fade-up">
-    <h3>Skills</h3>
-    <div class="grid-2">
-      <div class="skill-box">
-        <p>Python</p>
-        <div class="progress-bar"><span style="width: 95%"></span></div>
+  <section class="parallax-section" id="projects">
+    <div class="section-content">
+      <h3>Projects</h3>
+      <div class="floating-card">
+        <h4>ImageIntel – Image Captioning System</h4>
+        <p>Developed a vision-language model using ViT and GPT-2 with gTTS speech generation. Achieved 86% accuracy in generating contextual captions.</p>
+        <div>
+          <span class="badge">Python</span>
+          <span class="badge">PyTorch</span>
+          <span class="badge">gTTS</span>
+          <span class="badge">Transformers</span>
+        </div>
       </div>
-      <div class="skill-box">
-        <p>JavaScript</p>
-        <div class="progress-bar"><span style="width: 85%"></span></div>
-      </div>
-      <div class="skill-box">
-        <p>HTML/CSS</p>
-        <div class="progress-bar"><span style="width: 90%"></span></div>
-      </div>
-      <div class="skill-box">
-        <p>PyTorch / TensorFlow</p>
-        <div class="progress-bar"><span style="width: 80%"></span></div>
+      <div class="floating-card">
+        <h4>DRDL Secure App</h4>
+        <p>Created a JSP-based secure communication system using Oracle DB and server-side scripting for DRDL organization.</p>
+        <div>
+          <span class="badge">JSP</span>
+          <span class="badge">JavaScript</span>
+          <span class="badge">Oracle</span>
+        </div>
       </div>
     </div>
   </section>
 
-  <section id="education" data-aos="fade-up">
-    <h3>Education</h3>
-    <div class="timeline-event">
-      <h4>B.E. CSE – MVSR Engineering College</h4>
-      <p>CGPA: 9.61</p>
-    </div>
-    <div class="timeline-event">
-      <h4>Intermediate – Narayana Junior College</h4>
-      <p>Percentage: 98.2%</p>
-    </div>
-    <div class="timeline-event">
-      <h4>SSC – Little Flower High School</h4>
-      <p>CGPA: 9.8</p>
+  <section class="parallax-section" id="skills">
+    <div class="section-content">
+      <h3>Skills</h3>
+      <div class="floating-card">
+        <ul>
+          <li><strong>Languages:</strong> Python (4/5), C (4/5), C++ (3/5), Java (3/5)</li>
+          <li><strong>Web Development:</strong> HTML (4/5), CSS (3/5), JS (3/5), PHP (2/5), JSP (2/5)</li>
+          <li><strong>Tools & Frameworks:</strong> React (2/5), PyTorch, TensorFlow, Oracle</li>
+        </ul>
+      </div>
     </div>
   </section>
 
-  <section id="location" data-aos="fade-up">
-    <h3>My Location</h3>
-    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3806.0019058908794!2d78.48271277514234!3d17.45526458341479!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcb9beaaab4907b%3A0x1fc8001fbb5677ef!2sHyderabad%2C%20Telangana!5e0!3m2!1sen!2sin!4v1721784470384" allowfullscreen="" loading="lazy"></iframe>
+  <section class="parallax-section" id="education">
+    <div class="section-content">
+      <h3>Education</h3>
+      <div class="floating-card timeline">
+        <div class="timeline-item">
+          <h4>B.E. CSE – MVSR Engineering College</h4>
+          <p>2021 – 2025</p>
+        </div>
+        <div class="timeline-item">
+          <h4>Intermediate – Narayana Junior College</h4>
+          <p>2019 – 2021</p>
+        </div>
+        <div class="timeline-item">
+          <h4>SSC – Little Flower High School</h4>
+          <p>2018 – 2019</p>
+        </div>
+      </div>
+    </div>
   </section>
 
-  <section id="contact" data-aos="fade-up">
-    <h3>Contact</h3>
-    <p style="text-align:center;">
-      📧 <a href="mailto:akshathakompally@gmail.com">akshathakompally@gmail.com</a><br/>
-      📞 +91 9701536579
-    </p>
+  <section class="parallax-section" id="contact">
+    <div class="section-content">
+      <h3>Contact</h3>
+      <div class="floating-card">
+        <p>Email: <a href="mailto:akshathakompally@gmail.com">akshathakompally@gmail.com</a></p>
+        <p>Phone: +91 9701536579</p>
+      </div>
+    </div>
   </section>
 
   <footer>
     <p>&copy; 2025 Akshatha Kompally. All rights reserved.</p>
   </footer>
 
-  <!-- Scripts -->
   <script>
     AOS.init();
 
-    // Theme toggle
-    const toggle = document.getElementById('theme-toggle');
-    const body = document.body;
-    toggle.addEventListener('click', () => {
-      body.classList.toggle('light-theme');
-    });
+    const roles = ["AI Enthusiast", "Full Stack Developer", "Tech Explorer"];
+    const animatedText = document.getElementById('animated-text');
+    let i = 0;
+    setInterval(() => {
+      animatedText.textContent = roles[i];
+      i = (i + 1) % roles.length;
+    }, 2500);
 
-    // Typing animation
-    const roles = ["Aspiring AI Engineer", "Full Stack Developer", "ML Enthusiast"];
-    let roleIndex = 0;
-    let charIndex = 0;
-    const typedText = document.getElementById("typed-text");
-
-    function typeEffect() {
-      if (charIndex < roles[roleIndex].length) {
-        typedText.textContent += roles[roleIndex].charAt(charIndex);
-        charIndex++;
-        setTimeout(typeEffect, 100);
-      } else {
-        setTimeout(() => eraseEffect(), 2000);
-      }
-    }
-
-    function eraseEffect() {
-      if (charIndex > 0) {
-        typedText.textContent = roles[roleIndex].substring(0, charIndex - 1);
-        charIndex--;
-        setTimeout(eraseEffect, 50);
-      } else {
-        roleIndex = (roleIndex + 1) % roles.length;
-        setTimeout(typeEffect, 500);
-      }
-    }
-
-    document.addEventListener("DOMContentLoaded", typeEffect);
-
-    // Preloader
-    window.addEventListener("load", () => {
-      const loader = document.getElementById("preloader");
-      loader.style.opacity = "0";
-      loader.style.transition = "opacity 0.5s ease";
-      setTimeout(() => loader.style.display = "none", 500);
+    document.addEventListener("mousemove", (e) => {
+      const dot = document.createElement("div");
+      dot.className = "trail-dot";
+      dot.style.left = e.pageX + "px";
+      dot.style.top = e.pageY + "px";
+      document.body.appendChild(dot);
+      setTimeout(() => dot.remove(), 600);
     });
   </script>
 
